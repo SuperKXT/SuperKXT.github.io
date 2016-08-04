@@ -1,0 +1,486 @@
+	body {
+        margin: 0;
+        padding: 0;  
+		background: white;
+		background-size: 100%;
+		z-index: -1;
+    }
+	
+	#title {
+		margin-top: 50px;
+		margin-bottom: 50px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		width: 100%;
+	}
+	
+	#title img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		height: 100%;
+	}
+	
+	.horizontalLine {
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+		border: none;
+	}
+	
+	.horizontalLine hr {
+		height: 1px;
+		color: lightgrey;
+		background-color: #E2F7FC;
+		border: none;
+	}
+	
+	#nav {
+		margin: 5px auto 5px auto;
+		width: 80%;
+	}
+	
+	#barLogo {
+		float: left;
+		color: #12B7E0;
+		font-family: aldo, "Arial Black", Gadget, sans-serif;
+		font-size: 2em;
+		display: none;
+		background-color: white;
+		height: 90%;
+		margin-left: 20px;
+		margin-top: 2px;
+		cursor: default;
+	}
+	
+	#barLogo img {
+		float: left;
+		height: 90%;
+		display: inline;
+		margin-top: 2.5px;
+		margin-left: 5px;
+	}
+	
+	#barLogoText {
+		float: left;
+		margin-top: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+	#pullMenu{
+		font-size: 1.5em;
+		color: #12B7E0;
+		display: none;
+		margin-left: auto;
+		margin-right: auto;
+		font-family: aldo, "Arial Black", Gadget, sans-serif;
+		width: 100%;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	#pullMenu:hover {
+		box-shadow: 0px 0px 3px rgba(0, 100, 255, 1);
+	}
+	
+	#navbar {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	
+	#navbar li {
+		display: inline-block;
+		border-radius: 5px;
+	}
+	
+	li a {
+		display: inline-block;
+		width: 100px;
+		padding: 3px;
+		text-decoration: none;
+		color: #12B7E0;
+		font-family: aldo, "Arial Black", Gadget, sans-serif;
+		font-size: 1.5em;
+	}
+	
+	#navbar li:hover {
+		box-shadow: 0px 0px 3px #E2F7FC;
+	}
+	
+	#mainServices {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		width: 100%;
+		font-size: 1.2em;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		color: #333333;
+		display:table;
+		border-collapse: separate;
+		border-spacing: 10px;
+	}
+	
+	#mainServices .content {
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+		overflow: hidden;
+	}
+	
+	#mainServices img {
+		width: 100px;
+		margin: 0;
+		padding: 0;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.service  {
+		width: 30%;
+		display: inline-block;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;	
+		border-radius: 10px;
+		display:table-cell;
+	}
+	
+	.service:hover {
+		background-color: #E2F7FC;
+	}
+		
+	#graphic {
+		margin-right: 4.52%;
+	}
+
+	#web {
+		margin-right: 4.52%;
+	}
+	
+	.heading {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-family: aldo, Impact, Charcoal, sans-serif;
+		font-size: 1.5em;
+	}
+	
+	.text  {
+		font-family:  Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif; 
+		font-size: 0.8em;
+		margin: 10px;
+	}
+	
+	#upwork {
+		margin: 50px auto 0 auto;
+		color: #333333;
+		font-size: 1.2em;
+		text-align: center;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+		width: 70%;
+	}
+
+	#upworkHeading {
+		font-family: aldo, Impact, Charcoal, sans-serif;
+		font-size: 2.5em;
+		margin-bottom: 20px;
+		color: #12B7E0;
+	}
+	
+	#upworkBody {
+		border-radius: 10px;
+		width: 100%;
+		display: block;
+		box-shadow: 0px 0px 5px #12B7E0 inset;	
+	 }
+	
+	#upworkBio {
+		display: inline-block;
+		width: 60%;
+		margin: 0;
+		margin-right: 5px;
+	}
+	
+	#upworkName {
+		font-size: 2.5em;
+		font-weight: bold;
+		margin: 10px 0;
+	}
+	
+	.skills {
+		display: inline-block;		
+		background-color: #E2F7FC;		
+		padding: 5px 10px;
+		margin-left: 5px;
+		margin-bottom: 10px;
+		width: 25%;
+		//border-radius: 10px;
+		font-size: 0.8em;
+		
+	}
+	
+	#upworkWorkHistory {
+		padding-left: 10px;
+		width: 35%;
+		display: inline-block;
+		margin: 0;
+		text-align: left;
+		padding-top: 5px;
+	}
+	
+	#upworkWorkHistory hr {
+		width: 80%;
+		text-align: left;
+		margin-left: 0;
+	}
+	
+	.subHeading {
+		font-size: 1.3em;
+	}
+	
+	.stars {
+		color: #12B7E0;
+		font-size: 1.3em;
+	}
+
+	
+	#upworkWorkHistory div {
+		margin-top: 5px;
+	}
+	
+	#upworkReviews {
+		padding: 10px;
+		margin-top: 20px;
+	}
+	
+	#upworkReviews hr {
+		width: 60%;
+		margin: 10px auto;
+	}
+	
+	.review {
+		padding: 10px;
+		width: 90%;
+		display: block;
+		margin: 10px auto 0 auto;
+		font-size: 0.8em;
+		background-color: #E2F7FC;		
+		//border-radius: 10px;
+	}
+	
+	#upworkViewButton a {
+		display: block;
+		width: 40%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px;
+		font-size: 1.3em;
+		color: white;
+		background-color: #12B7E0;
+		text-decoration: none;
+		font-family: aldo, Impact, Charcoal, sans-serif;
+		margin-top: 10px;
+	}
+	
+	#upworkViewButton a:hover {
+		background-color: #68D7F2;
+	}
+	
+	#upworkViewButton a:active {
+		background-color: #0E87A5;
+	}
+
+	#resume {
+		margin: 50px auto 0 auto;
+		color: #333333;
+		text-align: center;
+	}	
+	
+	#resumeButton a {
+		display: block;
+		width: 40%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10px;
+		font-size: 2em;
+		color: white;
+		background-color: #12B7E0;
+		text-decoration: none;
+		font-family: aldo, Impact, Charcoal, sans-serif;
+		margin-top: 10px;
+	}
+	
+	#resumeButton a:hover {
+		background-color: #68D7F2;
+	}
+	
+	#resumeButton a:active {
+		background-color: #0E87A5;
+	}
+	
+	#bottom {
+		background-color: #12B7E0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		height: 200px;
+		color: white;
+		font-family: aldo, Impact, Charcoal, sans-serif;
+		margin-top: 50px;
+		text-align: center;
+		padding-top: 30px;
+	}
+	
+	#creativePakistan {
+		width: 100%;
+		background-color: white;
+		padding-top: 5px;
+		margin: 0;
+	}
+	
+	#creativePakistan img {
+		width: 50%;
+	}
+	
+	@media (min-width: 780px) {
+		#title {
+			height: 400px;
+		}
+	}
+	
+	@media (max-width: 780px) {
+		#title {
+			height: 200px;
+		}
+		li a {
+			width:78px;
+			font-size: 1.27em;
+		}
+		.service {
+			display: block;
+			width: 100%;
+			float: left;
+			margin: 0;
+			margin-bottom: 10px;
+		}
+		#upworkBio {
+			display: block;
+			width: 100%;
+		}
+		#upworkWorkHistory {
+			display: block;
+			width: 100%;
+			text-align: center;
+			padding: 0;
+		}
+		#upworkWorkHistory hr {
+			width: 60%;
+			margin: 10px auto;
+		}
+		
+	}
+	
+	@media (max-width: 350px) {
+		#title {
+			height: 100px;
+		}
+		#barLogo {
+			margin-left: 10px;
+			margin-top: 5px;
+			height: 80%;
+		}
+		#barLogoText {
+			margin-top: 2px;
+		}
+		#upworkName {
+			font-size: 1.5em;
+		}
+	}
+	
+	@media (max-width: 600px) {		
+
+		#creativePakistan img {
+			width: 80%;
+		}
+		#navbar {
+			display: none;
+		}
+		li a {
+			width: 100%;
+		}
+		#pullMenu {
+			display: block;
+		}
+		.skills {
+			display: block;
+			width: 60%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#upworkHeading {
+			font-size: 2em;
+		}
+		#upworkViewButton a {
+			font-size: 1.2em;
+		}
+		#creativePakistan img {
+			width: 80%;
+		}
+	}
+	
+	@font-face {
+		font-family: Aldo;
+		src: url('aldotheapache.ttf');
+	}
+	
+	#nav.navFixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: #12B7E0;
+		width: 100%;
+		margin-top: 0;
+		height: 50px;
+	}
+	
+	#navbar.navbarFixed {
+		margin: 0.4em 20px 0 0;
+		float: right;
+	}
+	
+	#navbar.navbarTop {
+		margin: 50px 0 0 0;
+		background-color: #12B7E0;
+	}
+
+	#navbar li a.liaFixed {
+		color: white;
+	}
+	
+	.horizontalLineFixed {
+		display: none;
+	}
+	
+	#barLogo.barLogoFixed {
+		display: inline;
+	}
+	
+	#pullMenu.pullMenuFixed {
+		float: right;
+		color: white;
+		margin: 10px 10px 0 0;
+		width: 80px;
+	}
+	
+	#navbar.shownavbar {
+		display: block ;
+		width: 100%;
+	}
+	
+	#navbar li.showli {
+		display: block;
+	}

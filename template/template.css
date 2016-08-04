@@ -1,0 +1,285 @@
+	body {
+        margin: 0;
+        padding: 0;  
+		background: white;
+		background-size: 100%;
+		z-index: -1;
+    }
+	
+	#title {
+		margin: 10px auto;
+		width: 100%;
+		text-align: center;
+		height: 100px;
+	}
+	
+	#title a {
+		text-decoration: none;
+	}
+	
+	#titleLeft, #titleRight {
+		color: #12B7E0;
+		font-size: 3em;
+		font-family: aldo, "Arial Black", Gadget, sans-serif;
+		display: inline-block;
+		height: 100%;
+		line-height: 220%;
+	}
+	
+	#title img {
+		display: inline-block;
+		margin-left: 10px;
+		margin-right: 10px;
+		height: 100%;
+		vertical-align: top;
+	}
+	
+	.horizontalLine {
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+		border: none;
+	}
+	
+	.horizontalLine hr {
+		height: 1px;
+		color: lightgrey;
+		background-color: #E2F7FC;
+		border: none;
+	}
+	
+	#nav {
+		margin: 5px auto 5px auto;
+		width: 80%;
+		background-color: #12B7E0;
+	}
+	
+	#barLogo {
+		float: left;
+		color: #12B7E0;
+		font-family: aldo, "Arial Black", Gadget, sans-serif;
+		font-size: 2em;
+		display: none;
+		background-color: white;
+		height: 90%;
+		margin-left: 20px;
+		margin-top: 2px;
+		cursor: default;
+	}
+	
+	#barLogo a {
+		text-decoration: none;
+	}
+	
+	#barLogo img {
+		float: left;
+		height: 90%;
+		display: inline;
+		margin-top: 2.5px;
+		margin-left: 5px;
+	}
+	
+	#barLogoText {
+		float: left;
+		margin-top: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
+		color: #12B7E0;
+	}
+	
+	#pullMenu{
+		font-size: 1.5em;
+		color: white;
+		display: none;
+		margin-left: auto;
+		margin-right: auto;
+		font-family: aldo, "Arial Black", Gadget, sans-serif;
+		width: 100%;
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	#pullMenu:hover {
+		box-shadow: 0px 0px 3px #E2F7FC;
+	}
+	
+	#navbar {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	
+	#navbar li {
+		display: inline-block;
+		border-radius: 5px;
+	}
+	
+	li a {
+		display: inline-block;
+		width: 100px;
+		padding: 3px;
+		text-decoration: none;
+		color: white;
+		font-family: aldo, "Arial Black", Gadget, sans-serif;
+		font-size: 1.5em;
+	}
+	
+	#contactButton a {
+		background-color: white;
+		color: #12B7E0 !important;
+	}	
+	
+	#navbar li:hover {
+		box-shadow: 0px 0px 3px #E2F7FC;
+	}
+	
+	#body {
+		width: 90%;
+		margin: 50px auto;
+	}
+
+	.heading {
+		margin-top: 30px;
+		margin-bottom: 10px;
+		font-family: aldo, Impact, Charcoal, sans-serif;
+		font-size: 1.5em;
+		color: #333333;
+	}
+	
+	.text  {
+		font-size: 0.8em;
+		font-family: Verdana, Geneva, sans-serif;
+		color: #333333;
+	}
+
+	#bottom {
+		background-color: #12B7E0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		height: 200px;
+		color: white;
+		font-family: aldo, Impact, Charcoal, sans-serif;
+		margin-top: 50px;
+		text-align: center;
+		padding-top: 30px;
+	}
+	
+	#creativePakistan {
+		width: 100%;
+		background-color: white;
+		padding-top: 5px;
+		margin: 0;
+	}
+	
+	#creativePakistan img {
+		width: 50%;
+	}
+	
+	@media (min-width: 780px) {
+		
+	}
+	
+	@media (max-width: 780px) {
+		li a {
+			width:78px;
+			font-size: 1.27em;
+		}
+	}
+	
+	@media (max-width: 350px) {
+		#title {
+			height: 50px;
+		}
+		#titleLeft, #titleRight {
+			font-size: 2em;
+			line-height: 180%;
+		}
+		#barLogo {
+			margin-left: 10px;
+			margin-top: 5px;
+			height: 80%;
+		}
+		#barLogoText {
+			margin-top: 2px;
+		}
+	}
+	
+	@media (max-width: 600px) {		
+		#navbar {
+			display: none;
+		}
+		li a {
+			width: 100%;
+		}
+		#pullMenu {
+			display: block;
+		}
+		.text {
+			font-size: 0.7em;
+		}
+		.heading {
+			font-size: 0.9em;
+		}
+		#body {
+			width: 99%;
+		}
+		#creativePakistan img {
+			width: 80%;
+		}
+	}
+	
+	@font-face {
+		font-family: Aldo;
+		src: url('aldotheapache.ttf');
+	}
+	
+	#nav.navFixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: #12B7E0;
+		width: 100%;
+		margin-top: 0;
+		height: 50px;
+	}
+	
+	#navbar.navbarFixed {
+		margin: 0.4em 20px 0 0;
+		float: right;
+	}
+	
+	#navbar.navbarTop {
+		margin: 50px 0 0 0;
+		background-color: #12B7E0;
+	}
+
+	#navbar li a.liaFixed {
+		color: white;
+	}
+	
+	.horizontalLineFixed {
+		display: none;
+	}
+	
+	#barLogo.barLogoFixed {
+		display: inline;
+	}
+	
+	#pullMenu.pullMenuFixed {
+		float: right;
+		color: white;
+		margin: 10px 10px 0 0;
+		width: 80px;
+	}
+	
+	#navbar.shownavbar {
+		display: block ;
+		width: 100%;
+	}
+	
+	#navbar li.showli {
+		display: block;
+	}

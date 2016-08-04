@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Successfully Sent!</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<script src="jquery.min.js"></script>
+	<link rel="icon" type="image/png" href="images/fav.png">
+	<script>
+	</script>
+	<style>
+		#container {
+			width: 100%;
+			height: 100%;
+		}
+		#box {
+			background-color: #E2F7FC;
+			text-align: center;
+			font-size: 1.2em;
+			font-family: Verdana, Geneva, sans-serif;
+			color: #333333;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			height: 250px;
+			width: 500px;
+			margin-top: -125px;
+			margin-left: -250px;
+			border-radius: 10px;
+		}
+		#icon {
+			background-color: green;
+			color: white;
+			display: inline-block;
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			text-align: center;
+			margin-top: 10px;
+			font-size: 1.8em;
+			margin-bottom: 5px;
+		}
+		hr {
+			width: 95%;
+			color: #12B7E0;
+			border: none;
+			height: 1px;
+			background-color: #12B7E0;
+		}
+		#message {
+			margin: 40px 0 ;
+			font-family: aldo, "Arial Black", Gadget, sans-serif;
+		}
+		#link a{
+			text-decoration: none;
+			font-size: 0.7em;
+			color: green;
+		}
+		@media (max-width: 600px) {
+			#box {
+				width: 100%;
+				margin-left: 0;
+				left: 0;
+			}
+			#link a{
+				font-size: 0.5em;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+			<div id="box">
+				<div id="icon">✔</div>
+				<hr>
+				<div id="message">
+					Form submitted successfully
+					<br>
+					<a href="contact.html">Back</a>
+				</div>
+				<hr>
+				<div id="link">
+					<a href="http://formspree.io">Powered by the awesome people at Formspree.</a>
+				</div>
+			</div>
+	</div>
+
+</body>
+</html>

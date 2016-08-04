@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<items>
+	<item class="logo" id="l1">
+		<images>
+			<image id="l1-1" description="Normal Version">portfolio/images/l1-1.png</image>
+			<image id="l1-2" description="Inverted Version">portfolio/images/l1-2.png</image>
+			<image id="l1-3" description="Black and White Version">portfolio/images/l1-3.png</image>
+			<image id="l1-4" description="Visual Style Guide">portfolio/images/l1-4.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l1.png</thumbnail>
+		<name>Personal Logo 2.0</name>
+		<description>About the hundredth personal logo I've made. Determined not to make another.</description>
+	</item>
+	
+	<item class="logo" id="l2">
+		<images>
+			<image id="l2" description="Final Logo">portfolio/images/l2.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l2.jpg</thumbnail>
+		<name>DigitCap</name>
+		<description>The first logo I made as a freelancer. Special Memories!</description>
+	</item>
+  
+    <item class="logo" id="l3">
+		<images>
+			<image id="l3-1" description="Final Logo">portfolio/images/l3-1.png</image>
+			<image id="l3-2" description="First Draft">portfolio/images/l3-2.jpg</image>
+			<image id="l3-3" description="Second Draft">portfolio/images/l3-3.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l3.png</thumbnail>
+		<name>ReverseTide</name>
+		<description>Made this for a client on Odesk. One of my best, don't you think?</description>
+	</item>
+
+	<item class="logo" id="l4">
+		<images>
+			<image id="l4" description="Final Logo">portfolio/images/l4.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l4.png</thumbnail>
+		<name>School System</name>
+		<description>Logo for a local school system, Al-Furqan.</description>
+	</item>
+	
+	<item class="logo" id="l5">
+		<images>
+			<image id="l5" description="Final Logo">portfolio/images/l5.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l5.png</thumbnail>
+		<name>Dinner Spinner</name>
+		<description>Logo for an iphone app.</description>
+	</item>
+	
+	<item class="logo" id="l6">
+		<images>
+			<image id="l6" description="Final Logo">portfolio/images/l6.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l6.png</thumbnail>
+		<name>Tehreek Repository</name>
+		<description>Logo for a repository site, Tehreek Repository. WIP.</description>
+	</item>
+  
+	<item class="logo" id="l7">
+		<images>
+			<image id="l7" description="Final Logo">portfolio/images/l7.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l7.png</thumbnail>
+		<name>School Logo</name>
+		<description>Logo project for a local school</description>
+	</item>
+	
+	<item class="logo" id="l8">
+		<images>
+			<image id="l8" description="Final Logo">portfolio/images/l8.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l8.png</thumbnail>
+		<name>YourAppForFree</name>
+		<description>YourAppForFree is a WIP web service.</description>
+	</item>
+	
+	<item class="logo" id="l9">
+		<images>
+			<image id="l9" description="Final Logo">portfolio/images/l9.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l9.png</thumbnail>
+		<name>Shaheen F.C.</name>
+		<description>Logo for a local Football Club / Academy.</description>
+	</item>
+	
+	<item class="logo" id="l10">
+		<images>
+			<image id="l10" description="Final Logo">portfolio/images/l10.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l10.png</thumbnail>
+		<name>ASI Khan</name>
+		<description>Logo Project: ASI Khan</description>
+	</item>
+	
+	<item class="logo" id="l11">
+		<images>
+			<image id="l11" description="Final Logo">portfolio/images/l11.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l11.jpg</thumbnail>
+		<name>Personal Logo 1.0</name>
+		<description>The last of the other 99 personal logos, sadly discarded!</description>
+	</item>
+	
+	<item class="logo" id="l12">
+		<images>
+			<image id="l12" description="Final Logo">portfolio/images/l12.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l12.png</thumbnail>
+		<name>IBM Photography</name>
+		<description>Logo for a local photography enthusiast, an acquaintance of mine.</description>
+	</item>
+	
+	<item class="logo" id="l13">
+		<images>
+			<image id="l13" description="Final Logo">portfolio/images/l13.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l13.jpg</thumbnail>
+		<name>AppBuzz startup</name>
+		<description>A programming startup: AppBuzz. Windows 8 App Development</description>
+	</item>
+	
+	<item class="logo" id="l14">
+		<images>
+			<image id="l14-1" description="Final Logo">portfolio/images/l14-1.png</image>
+			<image id="l14-2" description="Black and White Version">portfolio/images/l14-2.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l14.png</thumbnail>
+		<name>Tameer-e-Millat</name>
+		<description>Logo Project for a local school, Tameer-e-Millat.</description>
+	</item>
+	
+	<item class="logo" id="l15">
+		<images>
+			<image id="l15" description="Final Logo">portfolio/images/l15.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l15.png</thumbnail>
+		<name>NGO's Local Chapter</name>
+		<description>Logo for the my university's local chapter of an NGO.</description>
+	</item>
+	
+	<item class="logo" id="l16">
+		<images>
+			<image id="l16" description="Final Logo">portfolio/images/l16.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l16.png</thumbnail>
+		<name>ClippingUSA</name>
+		<description>Online Image Manipulation Site Logo project.</description>
+	</item>
+	
+	<item class="logo" id="l17">
+		<images>
+			<image id="l17-1" description="Final Logo">portfolio/images/l17-1.jpg</image>
+			<image id="l17-2" description="Logo Black and White version">portfolio/images/l17-2.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l17.jpg</thumbnail>
+		<name>iPad app: VIP</name>
+		<description>Logo for WIP iPad app by the name of VIP.</description>
+	</item>
+	
+	<item class="logo" id="l18">
+		<images>
+			<image id="l18" description="Final Logo">portfolio/images/l18.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l18.png</thumbnail>
+		<name>INT NGO</name>
+		<description>Logo for a national education reforms NGO, INT.</description>
+	</item>
+	
+	<item class="logo" id="l19">
+		<images>
+			<image id="l19" description="Final Logo">portfolio/images/l19.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l19.jpg</thumbnail>
+		<name>DS United F.C.</name>
+		<description>Logo for a Football Club at my university, DS United FC.</description>
+	</item>
+	
+	<item class="logo" id="l20">
+		<images>
+			<image id="l20" description="Final Logo">portfolio/images/l20.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l20.png</thumbnail>
+		<name>Enkomplete Startup</name>
+		<description>Enkomplete, A programming startup, founded by a student in my year.</description>
+	</item>
+	
+	<item class="logo" id="l21">
+		<images>
+			<image id="l21" description="Final Logo">portfolio/images/l21.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l21.png</thumbnail>
+		<name>Which Jobs Website</name>
+		<description>WIP website: Which Jobs.</description>
+	</item>
+	
+	<item class="logo" id="l22">
+		<images>
+			<image id="l22" description="Final Logo">portfolio/images/l22.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l22.jpg</thumbnail>
+		<name>Jr Jobs - Retrace</name>
+		<description>Simple Retracing / Rasterize job.</description>
+	</item>
+	
+	<item class="graphic" id="g1">
+		<images>
+			<image id="g1" description="Two Page Mockup">portfolio/images/g1.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g1.jpg</thumbnail>
+		<name>M8Ship iphone Mockup</name>
+		<description>Interface Mockup for Mobile app/site of an WIP social service.</description>
+	</item>
+	
+	<item class="graphic" id="g2">
+		<images>
+			<image id="g2-1" description="Version 1">portfolio/images/g2-1.jpg</image>
+			<image id="g2-2" description="Version 2">portfolio/images/g2-2.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g2.jpg</thumbnail>
+		<name>Blood Camp facebook</name>
+		<description>Two of the facebook posts I made for a local NGO for blood donation.</description>
+	</item>
+	
+	<item class="graphic" id="g3">
+		<images>
+			<image id="g3" description="Three Page Mockup">portfolio/images/g3.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g3.jpg</thumbnail>
+		<name>GPZ App Mockup</name>
+		<description>Interface Mockup for Mobile App of a WIP service.</description>
+	</item>
+	
+	<item class="graphic" id="g4">
+		<images>
+			<image id="g4-1" description="Home Page">portfolio/images/g4-1.jpg</image>
+			<image id="g4-2" description="Game Over Page">portfolio/images/g4-2.jpg</image>
+			<image id="g4-3" description="Choos Vehicle 1">portfolio/images/g4-3.jpg</image>
+			<image id="g4-4" description="Choose Vehicle 2">portfolio/images/g4-4.jpg</image>
+			<image id="g4-5" description="Choose Vehicle 3">portfolio/images/g4-5.jpg</image>
+			<image id="g4-6" description="Choose Vehicle 4">portfolio/images/g4-6.jpg</image>
+			<image id="g4-7" description="Partners Page">portfolio/images/g4-7.jpg</image>
+			<image id="g4-8" description="Instructions Page">portfolio/images/g4-8.jpg</image>
+			<image id="g4-9" description="Score Page">portfolio/images/g4-9.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g4.jpg</thumbnail>
+		<name>Road Ride</name>
+		<description>Interface Mockup and element design for a mobile racing game.</description>
+	</item>
+	
+	<item class="graphic" id="g5">
+		<images>
+			<image id="g5-1" description="Home Page">portfolio/images/g5-1.jpg</image>
+			<image id="g5-2" description="Cuisine Page">portfolio/images/g5-2.jpg</image>
+			<image id="g5-3" description="Partners Page">portfolio/images/g5-3.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l5.png</thumbnail>
+		<name>iphone app Mockup</name>
+		<description>Interface Mockup and elements design for Mobile App of a WIP service.</description>
+	</item>
+	
+	<item class="graphic" id="g6">
+		<images>
+			<image id="g6" description="Line up">portfolio/images/g6.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g6.jpg</thumbnail>
+		<name>Football Line Up</name>
+		<description>Football Line up Template.</description>
+	</item>
+	
+	<item class="graphic" id="g7">
+		<images>
+			<image id="g7-1" description="Page Design 1">portfolio/images/g7-1.jpg</image>
+			<image id="g7-2" description="Page Design 2">portfolio/images/g7-2.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/l17.jpg</thumbnail>
+		<name>VIP App Mockup</name>
+		<description>Interface Mockup and icon design for WIP iPad app.</description>
+	</item>
+	
+	<item class="graphic" id="g8">
+		<images>
+			<image id="g8" description="facebook post">portfolio/images/g8.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g8.jpg</thumbnail>
+		<name>Facebook post</name>
+		<description>One of my facebook posts for an NGO.</description>
+	</item>
+	
+	<item class="graphic" id="g9">
+		<images>
+			<image id="g9" description="Proposal Design">portfolio/images/g9.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g9.jpg</thumbnail>
+		<name>Project Proposal</name>
+		<description>Project porposal for a university final year project.</description>
+	</item>
+	
+	<item class="graphic" id="g10">
+		<images>
+			<image id="g10" description="Three Page Brochure Design">portfolio/images/g10.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g10.png</thumbnail>
+		<name>Brochure Design</name>
+		<description>Brochure Design for admission guidance campaign of a student NGO.</description>
+	</item>
+	
+	<item class="graphic" id="g11">
+		<images>
+			<image id="g11" description="facebook post">portfolio/images/g11.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g11.jpg</thumbnail>
+		<name>Facebook Post</name>
+		<description>Facebook post for an NGO's tour notification.</description>
+	</item>
+	
+	<item class="graphic" id="g12">
+		<images>
+			<image id="g12" description="Panaflex Design">portfolio/images/g12.png</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g12.png</thumbnail>
+		<name>Wall Hanging Banner</name>
+		<description>Panaflex design for a children event of an NGO.</description>
+	</item>
+	
+	<item class="graphic" id="g13">
+		<images>
+			<image id="g13" description="facebook post">portfolio/images/g13.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g13.jpg</thumbnail>
+		<name>Facebook post</name>
+		<description>One of the facebook posts for an NGO.</description>
+	</item>
+	
+	<item class="graphic" id="g14">
+		<images>
+			<image id="g14" description="facebook post">portfolio/images/g14.jpg</image>
+		</images>
+		<thumbnail>portfolio/thumbnails/g14.jpg</thumbnail>
+		<name>Facebook post</name>
+		<description>One of the facebook posts for an NGO.</description>
+	</item>
+  
+</items> 
