@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+	    <meta charset="utf-8" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Canal Control Plus</title>
+        <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+        <script src="jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="start.js"></script>
+        <script type="text/javascript" src="constants.js"></script>
+		<script type="text/javascript" src="game.js"></script>
+		<script type="text/javascript" src="highScores.js"></script>
+		<script type="text/javascript" src="instructions.js"></script>
+        <script>$(document).ready(initialize);     </script>
+		<link rel="icon" type="image/png" href="logo.png">
+    </head>
+
+    <body onmousedown="mouseClick(event)">
+		<div id="load" onkeydown="keyDownStart(event)">
+			<div id="loadContent">
+				<div id='loadTitle'>
+					Loading, Please Wait!
+				</div>
+			</div>
+        </div>
+		
+        <div id="start" onkeydown="keyDownStart(event)">
+			<div id="startLogo">
+				<img id='startLogoImg' src='logo.png'>
+			</div>
+			<div id='startTitle'>
+				<img id='startTitleImg' src="title.png">
+			</div>
+			<div id="startGame" tabindex="0" class='startButton'>Start Game</div>
+			<div id="startHighScore" tabindex="0" class='startButton'>High Scores</div>
+			<div id="startInstructions" tabindex="0" class='startButton'>Instructions</div>
+        </div>
+		
+		<div id="highScore" onkeydown="keyHighScore()">
+			<div id="highScoreTitle">High Scores</div>
+			<div id="highScoreTable">
+				<table>
+					<tr id="tableHeader">
+						<th id="nameHeader">Name</th>
+						<th id="scoreHeader">Score</th>
+					</tr>
+					<tr id="rowOne">
+						<td id="nameOne">Saad</td>
+						<td id="scoreOne">1250</td>
+					</tr>
+					<tr id="rowTwo">
+						<td id="nameTwo">N/A</td>
+						<td id="scoreTwo">0</td>
+					</tr>
+					<tr id="rowThree">
+						<td id="nameThree">N/A</td>
+						<td id="scoreThree">0</td>
+					</tr>
+					<tr id="rowFour">
+						<td id="nameFour">N/A</td>
+						<td id="scoreFour">0</td>
+					</tr>
+					<tr id="rowFive">
+						<td id="nameFive">N/A</td>
+						<td id="scoreFive">0</td>
+					</tr>
+					<tr id="rowSix">
+						<td id="nameSix">N/A</td>
+						<td id="scoreSix">0</td>
+					</tr>
+					<tr id="rowSeven">
+						<td id="nameSeven">N/A</td>
+						<td id="scoreSeven">0</td>
+					</tr>
+					<tr id="rowEight">
+						<td id="nameEight">N/A</td>
+						<td id="scoreEight">0</td>
+					</tr>
+					<tr id="rowNine">
+						<td id="nameNine">N/A</td>
+						<td id="scoreNine">0</td>
+					</tr>
+					<tr id="rowTen">
+						<td id="nameTen">N/A</td>
+						<td id="scoreTen">0</td>
+					</tr>
+				</table>
+			</div>
+			<div id="highScoreBack" tabindex="0">Press Any Key to go back!</div>
+		</div>
+		
+		<div id="instructions" onkeydown="keyInstructions()">
+			<div id="instructionsText">
+				Build the Longest pipe you can with the pieces provided before the water reaches the other end - the longer it is, the more points
+				 your earn Each level gives you the minimum number of pieces you need to build the pipe - the higher the level, the more pieces need to be used, and the harder the challenge.
+				 <br><br>You get 100 bonus points for using the both directions of a cross-pipe, and you lose 40 points if you lay a new piece over a piece you have laid.
+				 <br><br>Keys:
+				 <br>Move slots: Arrow keys
+				 <br>Place the pipe: Enter key
+				 <br>Speed up: Space key
+			</div>
+			<div id="instructionsBack" tabindex="0">Press Any Key to go back!</div>
+		</div>
+		
+		<div id="gamePlay">
+			<div id="main">
+				<div id="head">
+					<div id="level"></div>
+					<div id="score"></div>
+					<div id="remaining"></div>
+				</div
+				><div id="gameArea" onkeydown="keyDownHandler(event)" onkeyup="keyUpHandler(event)"> 
+					<div class="button" tabindex="0" id="00" data-pipe="none"></div
+					><div class="button" tabindex="0" id="01" data-pipe="none"></div
+					><div class="button" tabindex="0" id="02" data-pipe="none"></div
+					><div class="button" tabindex="0" id="03" data-pipe="none"></div
+					><div class="button" tabindex="0" id="04" data-pipe="none"></div
+					><div class="button" tabindex="0" id="05" data-pipe="none"></div
+					><div class="button" tabindex="0" id="06" data-pipe="none"></div
+					><div class="button" tabindex="0" id="07" data-pipe="none"></div
+					><div class="button" tabindex="0" id="08" data-pipe="none"></div
+					><div class="button" tabindex="0" id="09" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="10" data-pipe="none"></div
+					><div class="button" tabindex="0" id="11" data-pipe="none"></div
+					><div class="button" tabindex="0" id="12" data-pipe="none"></div
+					><div class="button" tabindex="0" id="13" data-pipe="none"></div
+					><div class="button" tabindex="0" id="14" data-pipe="none"></div
+					><div class="button" tabindex="0" id="15" data-pipe="none"></div
+					><div class="button" tabindex="0" id="16" data-pipe="none"></div
+					><div class="button" tabindex="0" id="17" data-pipe="none"></div
+					><div class="button" tabindex="0" id="18" data-pipe="none"></div
+					><div class="button" tabindex="0" id="19" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="20" data-pipe="none"></div
+					><div class="button" tabindex="0" id="21" data-pipe="none"></div
+					><div class="button" tabindex="0" id="22" data-pipe="none"></div
+					><div class="button" tabindex="0" id="23" data-pipe="none"></div
+					><div class="button" tabindex="0" id="24" data-pipe="none"></div
+					><div class="button" tabindex="0" id="25" data-pipe="none"></div
+					><div class="button" tabindex="0" id="26" data-pipe="none"></div
+					><div class="button" tabindex="0" id="27" data-pipe="none"></div
+					><div class="button" tabindex="0" id="28" data-pipe="none"></div
+					><div class="button" tabindex="0" id="29" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="30" data-pipe="none"></div
+					><div class="button" tabindex="0" id="31" data-pipe="none"></div
+					><div class="button" tabindex="0" id="32" data-pipe="none"></div
+					><div class="button" tabindex="0" id="33" data-pipe="none"></div
+					><div class="button" tabindex="0" id="34" data-pipe="none"></div
+					><div class="button" tabindex="0" id="35" data-pipe="none"></div
+					><div class="button" tabindex="0" id="36" data-pipe="none"></div
+					><div class="button" tabindex="0" id="37" data-pipe="none"></div
+					><div class="button" tabindex="0" id="38" data-pipe="none"></div
+					><div class="button" tabindex="0" id="39" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="40" data-pipe="none"></div
+					><div class="button" tabindex="0" id="41" data-pipe="none"></div
+					><div class="button" tabindex="0" id="42" data-pipe="none"></div
+					><div class="button" tabindex="0" id="43" data-pipe="none"></div
+					><div class="button" tabindex="0" id="44" data-pipe="none"></div
+					><div class="button" tabindex="0" id="45" data-pipe="none"></div
+					><div class="button" tabindex="0" id="46" data-pipe="none"></div
+					><div class="button" tabindex="0" id="47" data-pipe="none"></div
+					><div class="button" tabindex="0" id="48" data-pipe="none"></div
+					><div class="button" tabindex="0" id="49" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="50" data-pipe="none"></div
+					><div class="button" tabindex="0" id="51" data-pipe="none"></div
+					><div class="button" tabindex="0" id="52" data-pipe="none"></div
+					><div class="button" tabindex="0" id="53" data-pipe="none"></div
+					><div class="button" tabindex="0" id="54" data-pipe="none"></div
+					><div class="button" tabindex="0" id="55" data-pipe="none"></div
+					><div class="button" tabindex="0" id="56" data-pipe="none"></div
+					><div class="button" tabindex="0" id="57" data-pipe="none"></div
+					><div class="button" tabindex="0" id="58" data-pipe="none"></div
+					><div class="button" tabindex="0" id="59" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="60" data-pipe="none"></div
+					><div class="button" tabindex="0" id="61" data-pipe="none"></div
+					><div class="button" tabindex="0" id="62" data-pipe="none"></div
+					><div class="button" tabindex="0" id="63" data-pipe="none"></div
+					><div class="button" tabindex="0" id="64" data-pipe="none"></div
+					><div class="button" tabindex="0" id="65" data-pipe="none"></div
+					><div class="button" tabindex="0" id="66" data-pipe="none"></div
+					><div class="button" tabindex="0" id="67" data-pipe="none"></div
+					><div class="button" tabindex="0" id="68" data-pipe="none"></div
+					><div class="button" tabindex="0" id="69" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="70" data-pipe="none"></div
+					><div class="button" tabindex="0" id="71" data-pipe="none"></div
+					><div class="button" tabindex="0" id="72" data-pipe="none"></div
+					><div class="button" tabindex="0" id="73" data-pipe="none"></div
+					><div class="button" tabindex="0" id="74" data-pipe="none"></div
+					><div class="button" tabindex="0" id="75" data-pipe="none"></div
+					><div class="button" tabindex="0" id="76" data-pipe="none"></div
+					><div class="button" tabindex="0" id="77" data-pipe="none"></div
+					><div class="button" tabindex="0" id="78" data-pipe="none"></div
+					><div class="button" tabindex="0" id="79" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="80" data-pipe="none"></div
+					><div class="button" tabindex="0" id="81" data-pipe="none"></div
+					><div class="button" tabindex="0" id="82" data-pipe="none"></div
+					><div class="button" tabindex="0" id="83" data-pipe="none"></div
+					><div class="button" tabindex="0" id="84" data-pipe="none"></div
+					><div class="button" tabindex="0" id="85" data-pipe="none"></div
+					><div class="button" tabindex="0" id="86" data-pipe="none"></div
+					><div class="button" tabindex="0" id="87" data-pipe="none"></div
+					><div class="button" tabindex="0" id="88" data-pipe="none"></div
+					><div class="button" tabindex="0" id="89" data-pipe="none"></div><!--
+					
+					--><div class="button" tabindex="0" id="90" data-pipe="none"></div
+					><div class="button" tabindex="0" id="91" data-pipe="none"></div
+					><div class="button" tabindex="0" id="92" data-pipe="none"></div
+					><div class="button" tabindex="0" id="93" data-pipe="none"></div
+					><div class="button" tabindex="0" id="94" data-pipe="none"></div
+					><div class="button" tabindex="0" id="95" data-pipe="none"></div
+					><div class="button" tabindex="0" id="96" data-pipe="none"></div
+					><div class="button" tabindex="0" id="97" data-pipe="none"></div
+					><div class="button" tabindex="0" id="98" data-pipe="none"></div
+					><div class="button" tabindex="0" id="99" data-pipe="none"></div>
+				</div>
+				<div id="endScreen" onkeydown="keyDownEnd(event)">
+					<div id="gameWon">
+						<div id="gameWonLabel" class="label">You cleared the Level!</div>
+						<div id="gameWonScore"></div>
+						<div id="gameWonContinue" tabindex="0" class='startButton'>Continue!</div>
+					</div>
+					<div id="gameOver">
+						<div id="gameOverLabel" class="label">You Lost the game. Way to Go!!!</div>
+						<div id="gameOverScore"></div>
+						<div id="gameOverBack" tabindex="0" class='startButton'>Main Menu</div>
+					</div>
+					<div id="gameOverHigh">
+						<div id="gameOverHighLabel" class="label">You Lost the game. Way to Go!!!</div>
+						<div id="formHeading">New High Score!</div>
+						<form name="highForm" id="highForm" action="//formspree.io/saadkhankxt@hotmail.com" method="POST">
+							<label for="name">Name : </label>
+							<input type="text" name="name" id="name" class="text" required>
+							<input type="text" name="scoreSend" id="scoreSend" class="text" style="display: none">
+							<br>
+							<input type="text" name="_gotcha" style="display:none" />
+							<input type="hidden" name="_next" value="CCP.html" />
+							<input type="submit" value="Send and Go back" id="submit">
+						</form> 
+					</div>
+				</div>
+			</div
+			
+			><div id="side">
+				<div id="pipe5"></div>
+				<div id="pipe4"></div>
+				<div id="pipe3"></div>
+				<div id="pipe2"></div>
+				<div id="pipe1"></div>
+				<br>
+				<div id="logo"></div>
+				<div id="timerLabel">Next Wave in</div>
+				<div id="timer"></div>
+			</div>
+		</div>
+
+        <audio id="water_flow"> 
+			<source src="audio/water_flow.mp3" type="audio/mpeg">
+		</audio>
+        <audio id="pipe_down">
+			<source src="audio/pipe_down.mp3" type="audio/mpeg">
+		</audio>
+        <audio id="pipe_duplicate"> 
+			<source src="audio/pipe_duplicate.mp3" type="audio/mpeg">
+		</audio>
+        <audio id="pipe_occupied"> 
+			<source src="audio/pipe_occupied.mp3" type="audio/mpeg">
+		</audio>
+        <audio id="game_win"> 
+			<source src="audio/game_win.mp3" type="audio/mpeg">
+		</audio>
+        <audio id="game_lose"> 
+			<source src="audio/game_lose.mp3" type="audio/mpeg">
+		</audio>
+		
+		<div id="error">Your Screen isn't big enough to handle Canal Control. Boo!</div>
+    </body>
+</html>

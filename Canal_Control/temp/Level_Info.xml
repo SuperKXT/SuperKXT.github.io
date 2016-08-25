@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<level1>
+    <start></start>
+    <end></end>
+    <speed></speed>
+    <pipes>3</pipes>
+</level1>
+
+<level2>
+    <start></start>
+    <end></end>
+    <speed></speed>
+    <pipes>5</pipes>
+</level2>

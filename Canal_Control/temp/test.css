@@ -1,0 +1,68 @@
+body {
+}
+
+#pipe_1 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) 0 0;
+}
+
+#pipe_2 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -50 0;
+}
+
+#pipe_3 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -100 0;
+}
+
+#pipe_4 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -150 0;
+}
+
+#pipe_5 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -200 0;
+}
+
+#pipe_6 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -250 0;
+}
+
+#pipe_7 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) 0 -50;
+}
+
+#pipe_8 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -50 -50;
+}
+
+#pipe_9 {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -100 -50;
+}
+
+#pipe_start {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -150 -50;
+}
+
+#pipe_end {
+    width: 50px;
+    height: 50px;
+    background: url(pipes.png) -200 -50;
+}

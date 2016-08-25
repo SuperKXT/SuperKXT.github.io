@@ -1,0 +1,44 @@
+/* ----------------------------------------------------
+   created with http://www.codeandweb.com/texturepacker 
+   ----------------------------------------------------
+   $TexturePacker:SmartUpdate:ebcf844e0bf355cc1ea6f6fb03e3d407:1d56a4ab4cdc474980541816477c7b98:1e9ea531edb030fd06c741d8d5dec72b$
+   ----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(pipes.png); background-size: 1000% 300%;}
+
+
+.pipe_1 {width:100%; height:100%; background-position: 0px 0px}
+.pipe_2 {width:100%; height:100%; background-position: -100px 0px}
+.pipe_3 {width:100%; height:100%; background-position: -200px 0px}
+.pipe_4 {width:100%; height:100%; background-position: -300px 0px}
+.pipe_5 {width:100%; height:100%; background-position: -400px 0px}
+.pipe_6 {width:100%; height:100%; background-position: -500px 0px}
+.pipe_7 {width:100%; height:100%; background-position: -600px 0px}
+.pipe_8 {width:100%; height:100%; background-position: -700px 0px}
+.pipe_9 {width:100%; height:100%; background-position: -800px 0px}
+.pipe_start {width:100%; height:100%; background-position: -900px 0px}
+.pipe_start_a_1 {width:100%; height:100%; background-position: 0px -100px}
+.pipe_start_a_2 {width:100%; height:100%; background-position: -100px -100px}
+.pipe_start_a_3 {width:100%; height:100%; background-position: -200px -100px}
+.pipe_end {width:100%; height:100%; background-position: -300px -100px}
+.f_pipe_1 {width:100%; height:100%; background-position: -400px -100px}
+.f_pipe_2 {width:100%; height:100%; background-position: -500px -100px}
+.f_h_pipe_3 {width:100%; height:100%; background-position: -600px -100px}
+.f_v_pipe_3 {width:100%; height:100%; background-position: -700px -100px}
+.f_pipe_3 {width:100%; height:100%; background-position: -800px -100px}
+.f_pipe_4 {width:100%; height:100%; background-position: -900px -100px}
+.f_pipe_5 {width:100%; height:100%; background-position: 0px -200px}
+.f_pipe_6 {width:100%; height:100%; background-position: -100px -200px}
+.f_pipe_7 {width:100%; height:100%; background-position: -200px -200px}
+.f_pipe_8 {width:100%; height:100%; background-position: -300px -200px}
+.f_pipe_9 {width:100%; height:100%; background-position: -400px -200px}
+.f_pipe_start {width:100%; height:100%; background-position: -500px -200px}
+.f_pipe_start_a_1 {width:100%; height:100%; background-position: -600px -200px}
+.f_pipe_start_a_2 {width:100%; height:100%; background-position: -700px -200px}
+.f_pipe_start_a_3 {width:100%; height:100%; background-position: -800px -200px}

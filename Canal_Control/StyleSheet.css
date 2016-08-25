@@ -1,0 +1,383 @@
+.sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat; background-image:url(pipes.png); background-size: 1000% 300%;}
+
+
+.pipe_1 {width:100%; height:100%; background-position: 0px 0px;}
+.pipe_2 {width: 100%; height:100%; background-position: -51px 0px;}
+.pipe_3 {width:100%; height:100%; background-position: -102px 0px;}
+.pipe_4 {width:100%; height:100%; background-position: -153px 0px;}
+.pipe_5 {width:100%; height:100%; background-position: -204px 0px;}
+.pipe_6 {width:100%; height:100%; background-position: -255px 0px;}
+.pipe_7 {width:100%; height:100%; background-position: -306px 0px;}
+.pipe_8 {width:100%; height:100%; background-position: -357px 0px;}
+.pipe_9 {width:100%; height:100%; background-position: -408px 0px;}
+.pipe_start {width:100%; height:100%; background-position: -459px 0px;}
+.pipe_start_a_1 {width:100%; height:100%; background-position: 0px -51px;}
+.pipe_start_a_2 {width:100%; height:100%; background-position: -51px -51px;}
+.pipe_start_a_3 {width:100%; height:100%; background-position: -102px -51px;}
+.pipe_end {width:100%; height:100%; background-position: -153px -51px;}
+.f_pipe_1 {width:100%; height:100%; background-position: -204px -51px;}
+.f_pipe_2 {width:100%; height:100%; background-position: -255px -51px;}
+.f_h_pipe_3 {width:100%; height:100%; background-position: -306px -51px;}
+.f_v_pipe_3 {width:100%; height:100%; background-position: -357px -51px;}
+.f_pipe_3 {width:100%; height:100%; background-position: -408px -51px;}
+.f_pipe_4 {width:100%; height:100%; background-position: -459px -51px;}
+.f_pipe_5 {width:100%; height:100%; background-position: 0px -102px;}
+.f_pipe_6 {width:100%; height:100%; background-position: -51px -102px;}
+.f_pipe_7 {width:100%; height:100%; background-position: -102px -102px;}
+.f_pipe_8 {width:100%; height:100%; background-position: -153px -102px;}
+.f_pipe_9 {width:100%; height:100%; background-position: -204px -102px;}
+.f_pipe_start {width:100%; height:100%; background-position: -255px -102px;}
+.f_pipe_start_a_1 {width:100%; height:100%; background-position: -306px -102px;}
+.f_pipe_start_a_2 {width:100%; height:100%; background-position: -357px -102px;}
+.f_pipe_start_a_3 {width:100%; height:100%; background-position: -408px -102px;}
+
+
+body {
+    background-color: white;
+	width: 100%;
+	background-color: white;
+	margin: 0;	font-family: Impact, Geneva, sans-serif;
+}
+
+#load {
+	margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+	width: 600px;
+	height: 600px;
+	background-color: #00ADEF;
+}
+
+#loadContent {
+	width: 80%;
+	height: 30%;
+	margin: 0 auto 0 auto;
+	padding-top: 45%;
+}
+
+#loadTitle {
+	font-family: Chicken;
+	color: white;
+	font-size: 2em;
+	margin: 0 auto;
+}
+
+#start {
+	margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+	width: 600px;
+	height: 600px;
+	background-color: #00ADEF;
+	display: none;
+}
+
+#startLogo {
+	width: 100px;
+	margin: 0 auto;
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+#startLogo img {
+	width: 100%;
+}
+
+#startTitle {
+	width: 350px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+#startTitle img {
+	width: 100%;
+}
+
+.startButton {
+	margin: 10px auto;
+	width: 250px;
+	background-color: white;
+	border: 5px solid lightgrey;
+	font-family: Chicken;
+	color: #00ADEF;
+	font-size: 3em;
+	border-radius: 30px;
+	box-shadow: 3px 3px 2px #1B5F86;
+	outline: 0;
+}
+
+.startButton:focus {
+	color: white;
+	background-color: #00ADEF;
+	border-color: #EEEEEE;
+	transform: scale(1.2);
+}
+
+#startInstructions {
+	width: 150px;
+	font-size: 1.5em;
+}
+
+#highScore {
+	display: none;
+	margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+	width: 600px;
+	height: 600px;
+	background-color: #00ADEF;
+	color: white;
+}
+
+#highScoreTitle {
+	font-size: 2em;
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+
+#highScoreTable {
+	margin-left: 50px;
+	margin-right: auto;
+	color: white;
+	font-size: 1.3em;
+}
+
+#highScoreTable td, #highScoreTable th {
+	border: 1px solid white;
+	margin: 0 auto;
+	width: 250px;
+}
+
+#highScoreBack {
+	margin-top: 20px;
+	font-size: 1.5em;
+}
+#highScoreBack:focus {
+	background-color: dodgerblue;
+	outline: none;
+}
+
+#instructions {
+	display: none;
+	margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+	width: 600px;
+	height: 600px;
+	background-color: #00ADEF;
+	color: white;
+}
+
+#instructionsText {
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 30px;
+	font-size: 1.3em;
+}
+
+#instructionsBack {
+	margin-top: 50px;
+}
+
+#gamePlay {
+	display: none;
+	margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+	width: 600px;
+	height: 600px;
+	background-color: grey;
+}
+
+#main{
+	width: 85%;
+    height: 100%;
+    background-color: #53b1f5;
+    text-align: center;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#head {
+    height: 15%;
+    width: 100%;
+    background-color: DodgerBlue;
+    text-align: center;
+    color: White;
+    font-size: 25px;
+}
+
+#level {
+	padding-top: 15px;
+}
+
+#score {
+    padding-left: 15px;
+    float: left;
+}
+
+#remaining {
+    padding-right: 15px;
+    float: right;
+}
+
+#gameArea {
+	width: 100%;
+	height: 85%; 
+}
+
+.button {
+	width: 10%;
+    height: 10%;	
+	background: -webkit-linear-gradient(left top, #0e23a0 , #77B5FE , white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #0e23a0 , #77B5FE , white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #0e23a0 , #77B5FE , white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #0e23a0 , #77B5FE , white); /* Standard syntax */	
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.button:focus {
+	box-shadow: 0px 0px 30px black inset;
+	outline: none;
+}
+
+#side {
+    height: 100%;
+    width: 15%;
+    background-color: DodgerBlue;
+    display: inline-block;
+	text-align: center;
+}
+
+#pipe5,
+#pipe4,
+#pipe3,
+#pipe2,
+#pipe1 {
+    height: 51px;
+    width: 51px;
+    margin-top: 20px;
+    position: relative;
+    margin-left: auto;
+	margin-right: auto;
+	border: 1px solid blue;
+}
+
+#pipe5 > img, #pipe4 > img, #pipe3 > img, #pipe2 > img, #pipe1 > img {
+	width: 100%;
+}
+
+#logo {
+	margin-left: auto;
+	margin-right: auto;
+    margin: 15px 0;
+}
+
+#logo > img {
+	width: 60%;
+}
+
+.button > img {
+	width: 100%;
+}
+
+#timer {
+	font-size: 25px;
+	margin-top: 10px;
+}
+
+#endScreen {
+	background-color: black;	
+	background-color: rgba(0, 0, 0, 0.9);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 5;
+}
+
+#gameWon, #gameOver, #gameOverHigh {
+	display: none;
+	width: 500px;
+	height: 400px;
+	position: fixed;
+	top: calc(50% - 205px);
+	left: calc(50% - 305px);
+	background-color: #00ADEF;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	font-size: 1.2em;
+	z-index: 10;
+}
+
+#gameWonContinue:focus, #gameOverBack:focus {
+	transform: none !important;
+}
+
+.label{
+	font-family: chicken;
+	font-size: 2em;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+#gameWonScore, #gameOverScore, #formHeading, form > label , input[type=text]{
+	font-size: 1.5em;
+	margin-bottom: 50px;
+}
+
+input[type=submit] {
+	border: none;
+	background: none;
+	margin-top: 50px;
+	background-color: white;
+	color: dodgerblue;
+	font-size: 1.5em;
+	font-family: chicken;
+}
+input[type=submit]:focus {
+	background-color: dodgerblue;
+	color: white;
+}
+
+	@font-face {
+		font-family: chicken;
+		src: url('Chicken Butt.ttf');
+		}
+
+#error {
+	display: none;
+	width: 100vw;
+	height: 600px;
+	background-color: #00ADEF;
+	text-align: center;
+	color: white;
+	font-size: 1.5em;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+		
+@media (max-width: 600px) {
+	#error {
+		display: block;
+	}
+	
+	#load, #start, #highScore, #instructions, #gamePlay {
+		display: none;
+	}
+}
