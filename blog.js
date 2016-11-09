@@ -37,8 +37,26 @@
 				$("#pagesNav").append(htm);
 				label++;
 			}
+
+			// See if a specific id is posted with the blog address.
+			urlId();
 		});
 		
+		function urlId() {
+			var results = new RegExp('[\?&]' + "id" + '=([^&#]*)').exec(window.location.href);
+			if (results == null){
+				return null;
+			}
+			else {
+				$.get('blog/blog.xml', function(file){
+					var $item = $(file).find('item[id="' + results[1] + '"]');
+					$("#mainSection").html('');
+					getContent($item);
+					$(document).scrollTop(0);					
+				});			
+			}
+		}	
+
 		function changePage(e) {
 			var pageNo = $(e.target).attr("pageNumber");
 			var start = pageNo * 5;

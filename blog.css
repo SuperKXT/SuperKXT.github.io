@@ -246,6 +246,12 @@
 		text-align: center;
 		margin: 10px 0;
 		font-weight: bold;
+		width: 100%;
+	}
+
+	#blogTitle > img {
+		width: 50%;
+		box-sizing: border-box;
 	}
 	
 	#blogDescription {
@@ -423,6 +429,13 @@
 			border-top: 2px solid #333333;
 			width: 100%;
 		}
+		#blogTitle > img {
+			width: 40%;
+		}
+		#pagesNav {
+			border: 0;
+			width: 100%;
+		}
 	}
 	
 	@media (max-width: 350px) {
@@ -441,7 +454,9 @@
 		#body {
 			width: 100%;
 		}
-	}
+		#blogTitle > img {
+			width: 60%;
+		}	}
 	
 	@media (max-width: 600px) {		
 		#navbar {
