@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<meta charset="UTF-8">
+		<title>Print Page</title>
+
+		<style type="text/css">
+			@page {
+				size: 210mm 297mm;
+				page-break-after: auto;
+				margin: 12.7mm;
+			}
+
+			.print {
+				height: 184.6mm;
+				width: 271.6mm;
+				margin: 0 auto;
+				font-size: 16px;
+				font-family: OpenLight;
+				-webkit-print-color-adjust:exact;
+				color-adjust: exact;
+			}
+
+			.print-section {
+				box-sizing: border-box;
+				width: calc(261.6mm / 2);
+				height: 100%;
+				border: 1px dotted black;
+				padding: 10px;
+				display: inline-block;
+			}
+
+			.print-section:not(:last-child) {
+				margin-right: 6mm;
+			}
+
+			.print-section-header {
+				padding-bottom: 5px;
+				height: 0.7in;
+				box-sizing: border-box;
+			}
+
+			.header-image {
+				height: 100%;
+				width: 25%;
+				display: inline-block;
+				text-align: center;
+			}
+
+			.print-section-header img {
+				height: 100%;
+			}
+
+			.print-section-header h1 {
+				display: inline-block;
+				margin: 0;
+				font-size: 13px;
+				height: 100%;
+				width: 75%;
+				text-align: center;
+				vertical-align: top;
+				font-weight: unset;
+			}
+
+			.print-section-header b {
+				font-size: 18px;
+			}
+
+			.print-section-student {
+				font-size: 12px;
+				color: black;
+				margin: 5px 0;
+				border: 1px solid black;
+				box-sizing: border-box;
+			}
+
+			.student-details-title {
+				display: inline-block;
+				width: 30%;
+				text-align: right;
+				padding-right: 15px;
+				box-sizing: border-box;
+				font-weight: bold;
+				margin: 2px 0 2px 0;
+			}
+
+			.student-details-value {
+				display: inline-block;
+				width: 70%;
+				text-align: left;
+				font-weight: bold;
+				margin: 2px 0 2px 0;
+			}
+
+			.print-section-fee {
+				font-size: 10px;
+				color: black;
+				border: 1px solid black;
+				border-bottom: 0;
+				box-sizing: border-box;
+			}
+
+			.fee-details-title {
+				display: inline-block;
+				width: 30%;
+				text-align: right;
+				padding-right: 10px;
+				box-sizing: border-box;
+				font-weight: bold;
+				border-bottom: 1px solid black;
+				border-right: 1px solid black;
+				padding: 4px 10px 4px 0;
+			}
+
+			.fee-details-value {
+				display: inline-block;
+				width: 70%;
+				border-bottom: 1px solid black;
+				vertical-align: bottom;
+				padding: 4px 0 4px 0;
+				padding-left: 10px;
+				box-sizing: border-box;
+			}
+
+			.print-section-slip {
+				text-align: center;
+				margin-top: 5px; 
+			}
+
+			.print-section-slip div {
+				background-color: #cccccc;
+				border: 1px solid black;
+				padding: 1px;
+				margin-top: 5px;
+				font-size: 13px;
+				box-sizing: border-box;
+			}
+
+			@font-face {
+				font-family: OpenLight;
+				src: url("../fonts/OpenSans-CondLight.ttf");
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!-- This will be added dynamically to this page.	-->
+
+	</body>
+
+</html>

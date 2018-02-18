@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta charset="UTF-8">
+	<title>Print Page</title>
+	<style type="text/css">
+		@page {
+			size: 11.69in 8.27in;
+			page-break-after: auto;
+		}
+		.print {
+			width: 100%;
+			font-size: 16px;
+			font-family: OpenLight;
+			-webkit-print-color-adjust:exact;
+			color-adjust: exact;
+		}
+		.print-header {
+			padding: 10px 10px;
+			border: 2px solid black;
+			height: 0.7in;
+			box-sizing: border-box;
+		}
+		.print-header img {
+			height: 100%;
+			display: inline-block;
+		}
+		.print-header h1 {
+			display: inline-block;
+			margin: 0;
+			font-size: 25px;
+			height: 100%;
+			line-height: 2;
+			vertical-align: top;
+			margin-left: 50px;
+		}
+		.table {
+			font-size: 16px;
+			width: 100%;
+		}
+		.table table {
+			border-collapse: collapse;
+			border: 1px solid black;
+			box-sizing: border-box;
+			min-width: 100%;
+		}
+		.table table tr {
+			display: default;
+		}
+		.table th {
+			background-color: black;
+			color: white;
+			padding: 5px;
+			white-space: nowrap;
+			text-align: center;
+		}
+		.table td {
+			padding: 5px 10px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			white-space: nowrap;
+			text-align: center;
+		}
+		.absent {
+			background-color: black;
+			color: white;
+		}
+		.present {
+			background-color: white;
+			color: black;
+		}
+		.leave {
+			background-color: gray;
+			color: white;
+		}
+		@font-face {
+			font-family: OpenLight;
+			src: url('../fonts/OpenSans-CondLight.ttf');
+		}
+	</style>
+</head>
+
+<body>
+
+	<div id="printDiv" class="print table">
+		<div id="printDivHeader" class="print-header">
+			<img src="../Images/school_logo_horizontal_bw.png" />
+			<h1>Heading</h1>
+		</div>
+
+		<div id="printDivBody" class="print-body">
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+﻿body {
+	padding: 0;
+	margin: 0;
+	background-color: #076138;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.container {
+	position: absolute;
+	width: 40%;
+	height: 53%;
+	top: 20%;
+	left: 30%;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.logo {
+	width: 60%;
+	margin-bottom: 10px; 
+}
+
+.login-form > input {
+	padding: 5px;
+	display: block;
+	font-family: OpenLight;
+	font-weight: 600;
+	font-size: 18px;
+	background-color: white;
+	color: #076138;
+	box-sizing: border-box;
+	margin: 5px auto 0 auto;
+	border: 2px solid #014c27;
+}
+
+/* :not(input[type=submit]) */
+.login-form > input:not([type=submit]) {
+	width: 60%;
+}
+
+.login-form > input[type=submit] {
+	width: 45%;
+	display: block;
+	cursor: pointer;
+}
+.login-form > input[type=submit]:hover {
+	transition:         0.5s linear;
+  	-o-transition:      0.5s linear;
+  	-ms-transition:     0.5s linear;
+  	-moz-transition:    0.5s linear;
+  	-webkit-transition: 0.5s linear;
+	background-color: #9AFCC0;
+}
+
+.message-box {
+    position: absolute;
+    bottom: 10px;
+    left: 15%;
+    width: 70%;
+    background-color: #000000;
+    border: 1px solid #ffffff;
+    box-sizing: border-box;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 20px;
+    opacity: 0.8;
+	font-family: OpenLight;
+}
+
+/*--------------------------- 
+       Loading Screen
+---------------------------*/
+.loading-screen {
+	font-family: OpenLight;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 120;
+	background-color: rgba(0, 0, 0, 0.95);
+}
+
+.loading-middle {
+	position: fixed;
+	top: 45%;
+	left: 45%;
+	width: 10%;
+	height: 10%;
+	text-align: center;
+}
+
+.loading-middle img {
+	width: 50%;
+	animation: spin 1500ms ease infinite;
+}
+  
+@keyframes spin {
+	from {
+		transform:rotate(0deg);
+	}
+	to {
+		transform:rotate(360deg);
+	}
+}
+
+.loading-text {
+	font-size: 18px;
+	font-weight: 800;
+	color: white;
+	white-space: nowrap;
+}
+
+
+/*--------------------------- 
+       Media Queries 
+---------------------------*/
+
+@media all and (max-width: 900px) {
+
+	.container {
+		position: absolute;
+		width: 80%;
+		height: 80%;
+		top: 10%;
+		left: 10%;
+		text-align: center;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+
+	.logo {
+		width: 60%;
+		margin-bottom: 20px;
+	}
+
+	.login-form > input:not([type="submit"]) {
+		width: 70%;
+		margin-bottom: 10px;
+	}
+
+	.login-form > input[type="submit"] {
+		width: 70%;
+		display: block;
+		cursor: pointer;
+	}
+
+}
+
+@media all and (max-width: 500px) {
+
+	.container {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		text-align: center;
+		padding: 20px;
+		box-sizing: border-box;
+	}
+
+	.logo {
+		width: 100%;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+	.login-form > input:not([type="submit"]) {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.login-form > input[type="submit"] {
+		width: 80%;
+		display: block;
+		cursor: pointer;
+	}
+
+	.loading-middle {
+		position: fixed;
+		top: 25%;
+		left: 25%;
+		width: 50%;
+		height: 50%;
+		text-align: center;
+	}
+
+}
+
+
+/*--------------------------- 
+	       Fonts 
+---------------------------*/
+@font-face {
+	font-family: OpenLight;
+	src: url('../fonts/OpenSans-CondLight.ttf');
+}

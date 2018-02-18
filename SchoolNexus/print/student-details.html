@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta charset="UTF-8">
+	<title>Print Page</title>
+	
+	<style type="text/css">
+
+		@page {
+			size: 210mm 297mm;
+			page-break-after: auto;
+			margin: 12.7mm;
+		}
+
+		.print {
+			height: 284.3mm;
+			width: 197.3mm;
+			margin: 0 auto;
+			font-size: 16px;
+			font-family: OpenLight;
+			-webkit-print-color-adjust:exact;
+			color-adjust: exact;
+		}
+
+		.print-header {
+			padding: 10px 10px;
+			border: 1px solid black;
+			height: 0.7in;
+			box-sizing: border-box;
+		}
+
+		.print-header img {
+			height: 100%;
+			display: inline-block;
+		}
+
+		.print-header h1 {
+			display: inline-block;
+			margin: 0;
+			font-size: 25px;
+			height: 100%;
+			line-height: 2;
+			vertical-align: top;
+			margin-left: 50px;
+		}
+
+		.student-details-image {
+			padding: 3px;
+			border: 1px solid black;
+			margin: 0 auto;
+			margin-top: 10px;
+			width: 100px;
+			height: 129px;
+			float: right;
+			margin-right: calc(25% - 100px);
+		}
+
+		.student-details-image>img {
+			width: 100%;
+			height: 100%
+		}
+
+		.student-details-general,
+		.student-details-father,
+		.student-details-mother,
+		.student-details-guardian {
+			width: 49%;
+			border: 1px solid black;
+			padding: 7px;
+			box-sizing: border-box;
+			margin-top: 50px;
+			display: inline-block;
+		}
+
+		.student-details-general,
+		.student-details-mother {
+			float: left;
+		}
+
+		.student-details-father,
+		.student-details-guardian {
+			float: right;
+		}
+
+		.student-details-title {
+			font-size: 11px;
+			font-weight: 800;
+			color: black;
+			background-color: white;
+			border: 1px solid black;
+			padding: 5px;
+			position: relative;
+			top: -20px;
+			left: 30px;
+		}
+
+		.student-details-name {
+			font-size: 10px;
+			color: black;
+			display: inline-block;
+			width: 25%;
+			text-align: right;
+			padding-right: 10px;
+			box-sizing: border-box;
+			border-bottom: 1px solid black;
+			margin-bottom: 5px;
+		}
+
+		.student-details-value {
+			font-size: 10px;
+			display: inline-block;
+			width: 75%;
+			border-bottom: 1px solid black;
+			vertical-align: bottom;
+			margin-bottom: 5px;
+		}
+
+		@font-face {
+			font-family: OpenLight;
+			src: url("../fonts/OpenSans-CondLight.ttf");
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- This will be added dynamically to this page.
+	<div id="printDiv" class="print">
+		<div id="printDivHeader" class="print-header">
+			<img src="../Images/logo_horizontal_bw.png" />
+			<h1>Student Details</h1>
+		</div>
+
+		<div id="printDivBody" class="print-body">
+			<div id="studentDetailsBody" class="student-details">
+				<span class="student-details-image">
+					<img id="studentDetailsImage" src="../Images/student-default.png" />
+				</span>
+				<h2></h2>
+				<div class="student-details-general">
+					<span class="student-details-title">General Information</span><br/>
+					<span class="student-details-name">ID</span><span id="studentDetailsID" class="student-details-value"></span>
+					<span class="student-details-name">Reg. No.</span><span id="studentDetailsRegistrationNumber" class="student-details-value"></span>
+					<span class="student-details-name">Name</span><span id="studentDetailsName" class="student-details-value"></span>
+					<span class="student-details-name">Class</span><span id="studentDetailsClass" class="student-details-value"></span>
+					<span class="student-details-name">Section</span><span id="studentDetailsSection" class="student-details-value"></span>
+					<span class="student-details-name">Gender</span><span id="studentDetailsGender" class="student-details-value"></span>
+					<span class="student-details-name">Date Of Birth</span><span id="studentDetailsDateOfBirth" class="student-details-value"></span>
+					<span class="student-details-name">Phone Number</span><span id="studentDetailsPhoneNumber" class="student-details-value"></span>
+					<span class="student-details-name">Email</span><span id="studentDetailsEmail" class="student-details-value"></span>
+					<span class="student-details-name">Address</span><span id="studentDetailsAddress" class="student-details-value"></span>
+					<span class="student-details-name">Fee Concession</span><span id="studentDetailsFeeConcession" class="student-details-value"></span>
+					<span class="student-details-name">Admission Date</span><span id="studentDetailsAdmissionDate" class="student-details-value"></span>
+					<span class="student-details-name">Leaving Date</span><span id="studentDetailsLeavingDate" class="student-details-value"></span>
+				</div>
+				<div class="student-details-father">
+					<span class="student-details-title">Father Information</span><br/>
+					<span class="student-details-name">ID</span><span id="studentDetailsFatherID" class="student-details-value"></span>
+					<span class="student-details-name">Name</span><span id="studentDetailsFatherName" class="student-details-value"></span>
+					<span class="student-details-name">NIC No.</span><span id="studentDetailsFatherNIC" class="student-details-value"></span>
+					<span class="student-details-name">Qualification</span><span id="studentDetailsFatherQualification" class="student-details-value"></span>
+					<span class="student-details-name">Field</span><span id="studentDetailsFatherField" class="student-details-value"></span>
+					<span class="student-details-name">Income</span><span id="studentDetailsFatherIncome" class="student-details-value"></span>
+					<span class="student-details-name">Email</span><span id="studentDetailsFatherEmail" class="student-details-value"></span>
+					<span class="student-details-name">Office Phone</span><span id="studentDetailsFatherOfficePhone" class="student-details-value"></span>
+					<span class="student-details-name">Mobile Phone</span><span id="studentDetailsFatherMobilePhone" class="student-details-value"></span>
+				</div>
+				<div class="student-details-mother">
+					<span class="student-details-title">Mother Information</span><br/>
+					<span class="student-details-name">ID</span><span id="studentDetailsMotherID" class="student-details-value"></span>
+					<span class="student-details-name">Name</span><span id="studentDetailsMotherName" class="student-details-value"></span>
+					<span class="student-details-name">NIC No.</span><span id="studentDetailsMotherNIC" class="student-details-value"></span>
+					<span class="student-details-name">Qualification</span><span id="studentDetailsMotherQualification" class="student-details-value"></span>
+					<span class="student-details-name">Field</span><span id="studentDetailsMotherField" class="student-details-value"></span>
+					<span class="student-details-name">Income</span><span id="studentDetailsMotherIncome" class="student-details-value"></span>
+					<span class="student-details-name">Email</span><span id="studentDetailsMotherEmail" class="student-details-value"></span>
+					<span class="student-details-name">Home Phone</span><span id="studentDetailsMotherHomePhone" class="student-details-value"></span>
+					<span class="student-details-name">Mobiel Phone</span><span id="studentDetailsMotherMobilePhone" class="student-details-value"></span>
+				</div>
+				<div class="student-details-guardian">
+					<span class="student-details-title">Guardian Information</span><br/>
+					<span class="student-details-name">ID</span><span id="studentDetailsGuardianID" class="student-details-value"></span>
+					<span class="student-details-name">Name</span><span id="studentDetailsGuardianName" class="student-details-value"></span>
+					<span class="student-details-name">NIC No.</span><span id="studentDetailsGuardianNIC" class="student-details-value"></span>
+					<span class="student-details-name">Qualification</span><span id="studentDetailsGuardianQualification" class="student-details-value"></span>
+					<span class="student-details-name">Field</span><span id="studentDetailsGuardianField" class="student-details-value"></span>
+					<span class="student-details-name">Income</span><span id="studentDetailsGuardianIncome" class="student-details-value"></span>
+					<span class="student-details-name">Email</span><span id="studentDetailsGuardianEmail" class="student-details-value"></span>
+					<span class="student-details-name">Office Phone</span><span id="studentDetailsGuardianOfficePhone" class="student-details-value"></span>
+					<span class="student-details-name">Mobile Phone</span><span id="studentDetailsGuardianMobilePhone" class="student-details-value"></span>
+					<span class="student-details-name">Relation</span><span id="studentDetailsGuardianRelation" class="student-details-value"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+</body>
+
+</html>

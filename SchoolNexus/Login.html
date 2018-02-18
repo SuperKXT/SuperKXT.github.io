@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<meta charset="UTF-8">
+	<title>School Nexus</title>
+	<link rel="shortcut icon" type="image/png" href="Images/fav.png" />
+	<link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+	<div id="container" class="container">
+		<img src="Images/logo-inverse.png" class="logo" />
+		<form name="login" method="POST" class="login-form">
+			<input id="username" type="text" name="username" placeholder="User Name" autofocus />
+			<input id="password" type="password" name="password" placeholder="Password" />
+			<input type="submit" name="submit" value="Log In" />
+		</form>
+	</div>
+
+	<div id="messageBox" class="message-box" hidden>
+		<span></span>
+	</div>
+
+	<!-- Loading Screen -->
+	<div id="loadingScreen" class="loading-screen" hidden>
+		<div class="loading-middle">
+			<img src="Images/logo_top.png" />
+			<div class="loading-text">Loading...</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="js/login.js" type="text/javascript"></script>
+</body>
+
+</html>
