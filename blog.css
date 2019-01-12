@@ -219,8 +219,9 @@
 	}
 	
 	.urdu {
-		font-family: urdu;
-		text-align: right;
+		font-family: urdu !important;
+		text-align: right !important;
+		font-style: unset !important;
 	}
 	
 	#mainSection hr {
@@ -493,7 +494,7 @@
 	
 	@font-face {
 		font-family: urdu;
-		src: url('faiz.ttf');
+		src: url('Nafees.ttf');
 	}
 	
 	#nav.navFixed {
