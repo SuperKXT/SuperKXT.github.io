@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <items>
+<item  id="train-logs-1">
+	<date>
+		<year>2016</year>
+		<month>11</month>
+		<day>17</day>
+	</date>
+	<title>Train Logs #1 - 9:35 pm</title>
+	<text>	
+	I have to go to Karachi. Due to a sudden change of plans, I had to book a last minute ticket with my brother and mother on the Hazara Express, the crown jewel of the ever increasingly shitty Pakistan Railway. The journey is scheduled for thirty one hours from Haripur to Karachi, although as anyone who is even remotely familiar with this fine organization would know, that means at least thirty five hours. I am keeping a log of the journey to pass the time. The last minute booking means that I do not have a berth booked. Needless to say this can be an interesting read.
+	I have professed my hatred of traveling one of my blogs before, so as you may be able to imagine, this worst of journeys under the worst of circumstances is nature at its cruelest for me.
+	As soon as I entered the compartment, the strong odor emanating from what I hope is the bathroom hits me like a punch. I move in and find that I have to be content with the side seat. The whole compartment smells vaguely of vomit.
+	I am already sick of this journey.	
+	</text>
+	<keywords>
+		<keyword>train</keyword>
+		<keyword>logs</keyword>
+		<keyword>log</keyword>
+		<keyword>rail</keyword>
+		<keyword>railway</keyword>
+		<keyword>writing</keyword>
+		<keyword>travel</keyword>
+		<keyword>karachi</keyword>
+		<keyword>haripur</keyword>	
+	</keywords>
+</item>	
   <item  id="classroom-thoughts-12">
 	<date>
 		<year>2016</year>
