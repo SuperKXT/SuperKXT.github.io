@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 365 391">
+  <defs>
+    <style>
+      .fil0{fill:#333;fill-rule:nonzero}
+    </style>
+  </defs>
+  <g id="Layer_x0020_1">
+    <g id="_2544483301824">
+      <path d="M35 391H0v-20h13v8h9v-11L0 352v-25h35v19H23v-7h-9v8l21 16z" class="fil0"/>
+      <path id="1" d="M55 391H41v-54l10-10h29v64H66v-21H55v21zm11-34v-18H55v18h11z" class="fil0"/>
+      <path id="2" d="M98 391H85v-54l10-10h28v64h-13v-21H98v21zm12-34v-18H98v18h12z" class="fil0"/>
+      <path id="3" d="M128 327h28l10 10v45l-9 9h-29v-64zm24 52v-40h-11v40h11z" class="fil0"/>
+      <path id="4" d="M232 355v36h-13v-24h-13v24h-14v-64h14v28l13-28h13l-12 28z" class="fil0"/>
+      <path id="5" d="M252 353h12v-26h13v64h-13v-26h-12v26h-13v-64h13z" class="fil0"/>
+      <path id="6" d="M296 391h-13v-54l10-10h28v64h-13v-21h-12v21zm12-34v-18h-12v18h12z" class="fil0"/>
+      <path id="7" d="M353 363v-36h12v64h-13l-13-37v37h-13v-64h14z" class="fil0"/>
+      <path fill="#333" d="M91 0l198 136 16-108-41-28H91zm59 188l160 111-9-59-9-59-23-33-54-37L56 0l9 59 117 90L65 59l9 59 23 33 53 37zm125 111l-99-68-40-27-60-41-16 108 41 28h174z"/>
+    </g>
+  </g>
+</svg>

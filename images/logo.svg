@@ -1,0 +1,293 @@
+<svg id="svg-logo-container" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650">
+	<defs>
+		<style>
+			.fil1{fill:#037d9c}.fil2{fill:#0aa5cc}.fil3{fill:#12b7e0}.fil4{fill:#085370}
+			
+			#svg-diamond-back {
+				animation: svg-animation-diamond-back linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-diamond-back {
+				0% {
+					opacity: 0;
+					transform: scale(1) rotateZ(52.486deg);
+					clip-path: circle(0%);
+				}
+				10% {
+					opacity: 1;
+					transform: scale(1) rotateZ(52.486deg);
+					clip-path: circle(100%);
+				}
+				20% {
+					transform: rotateZ(52.486deg);
+				}
+				30% {
+					transform: rotateZ(-0deg);
+				}
+				100% {
+					transform: rotateZ(-0deg);
+				}
+			}
+
+			#svg-diamond-fore {
+				animation: svg-animation-diamond-fore linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-diamond-fore {
+				0% {
+					transform: scale(1) rotateZ(52.486deg);
+					opacity: 0;
+				}
+				10% {
+					transform: rotateZ(52.486deg);
+					opacity: 0;
+				}
+				20% {
+					opacity: 1;
+					transform: rotateZ(52.486deg);
+				}
+				30% {
+					transform: rotateZ(-0deg);
+				}
+			}
+
+			#svg-diamond-fore {
+				animation: svg-animation-diamond-fore linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-diamond-fore {
+				0% {
+					transform: scale(1) rotateZ(52.486deg);
+					opacity: 0;
+				}
+				10% {
+					transform: rotateZ(52.486deg);
+					opacity: 0;
+				}
+				20% {
+					opacity: 1;
+					transform: rotateZ(52.486deg);
+				}
+				30% {
+					transform: rotateZ(-0deg);
+				}
+			}
+
+			#svg-middle-back {
+				animation: svg-animation-middle-back linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-middle-back {
+				0% {
+					opacity: 0;
+					width: 0;
+					height: 0;
+				}
+				40% {
+					opacity: 0;
+				}
+				41% {
+					opacity: 0;
+				}
+			}
+
+			#svg-middle-fore {
+				animation: svg-animation-middle-fore linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-middle-fore {
+				0% {
+					opacity: 0;
+					clip-path: circle(0%);
+				}
+				29% {
+					opacity: 0;
+					clip-path: circle(0%);
+				}
+				30% {
+					opacity: 1;
+					clip-path: circle(0%);
+				}
+				40% {
+					opacity: 1;
+					clip-path: circle(100%);
+				}
+			}
+
+			#svg-connectors {
+				animation: svg-animation-connectors linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-connectors {
+				0% {
+					opacity: 0;
+					transform: scaleY(0);
+				}
+				39% {
+					opacity: 0;
+					transform: scaleY(0);
+				}
+				40% {
+					opacity: 0;
+					transform: scaleY(0);
+				}
+				45% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 1;
+					transform: scaleY(1);
+				}
+			}
+
+			#svg-top-back {
+				animation: svg-animation-top-back linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-top-back {
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 0;
+				}
+				60% {
+					opacity: 1;
+				}
+			}
+
+			#svg-top-fore {
+				animation: svg-animation-top-fore linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-top-fore {
+				0% {
+					opacity: 0;
+					clip-path: inset(0 100% 0 0);
+				}
+				49% {
+					opacity: 0;
+					clip-path: inset(0 100% 0 0);
+				}
+				50% {
+					opacity: 1;
+					clip-path: inset(0 100% 0 0);
+				}
+				60% {
+					opacity: 1;
+					clip-path: inset(0 0 0 0);
+				}
+			}
+
+			#svg-bottom-back {
+				animation: svg-animation-bottom-back linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-bottom-back {
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 0;
+				}
+				60% {
+					opacity: 1;
+				}
+			}
+
+			#svg-bottom-fore {
+				animation: svg-animation-bottom-fore linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-bottom-fore {
+				0% {
+					opacity: 0;
+					clip-path: inset(0 0 0 100%);
+				}
+				49% {
+					opacity: 0;
+					clip-path: inset(0 0 0 100%);
+				}
+				50% {
+					opacity: 1;
+					clip-path: inset(0 0 0 100%);
+				}
+				60% {
+					opacity: 1;
+					clip-path: inset(0 0 0 0);
+				}
+			}
+
+			#svg-text {
+				animation: svg-animation-text linear 4s;
+				transform-origin: 50% 50% 0;
+			}
+
+			@keyframes svg-animation-text {
+				0% {
+					opacity: 0;
+					clip-path: inset(0 0 100% 0);
+				}
+				69% {
+					opacity: 0;
+					clip-path: inset(0 0 100% 0);
+				}
+				70% {
+					opacity: 1;
+					clip-path: inset(0 0 100% 0);
+				}
+				80% {
+					opacity: 1;
+					clip-path: inset(0 0 0 0);
+				}
+			}
+		</style>
+	</defs>
+	<g id="svg-logo-group">
+
+		<path class="diamond fil4" id="svg-diamond-back" d="M412 283l67 99-98-33-139-48-71-107-20-29-48-71 97 33 139 47h1l54 80z"/>
+		<g class="diamond" id="svg-diamond-fore">
+			<path class="fil1" d="M291 238L103 94l48 71 20 29 71 107z"/>
+			<path class="fil2" d="M103 94l188 144 49-64h-1l-139-47z"/>
+			<path class="fil3" d="M340 174l-49 64 188 144-67-99-18-29-54-80z"/>
+			<path class="fil2" d="M479 382L291 238l-49 63 139 48z"/>
+		</g>
+
+		<path id="svg-connectors" class="fil4" d="M144 0l159 108-32 19L89 0zM438 476L280 368l31-19 183 127z"/>
+
+		<path id="svg-top-back" class="fil4" d="M144 0l317 217 26-172-66-45z"/>
+		<g id="svg-top-fore">
+			<path class="fil2" d="M283 0l133 91 51-60-46-31zM416 91l-50 60 95 66 13-86z"/>
+			<path class="fil1" d="M366 151l50-60L283 0H144l159 108z"/>
+			<path class="fil3" d="M416 91l58 40 13-86-20-14z"/>
+		</g>
+
+		<path id="svg-middle-back" class="fil4" d="M291 238L103 94l15 94 36 52 85 59 255 177-15-94-14-94-37-52-85-59L89 0l14 94z"/>
+		<g id="svg-middle-fore">
+			<path class="fil3" d="M343 177l-52 61 188 144-14-94-37-52z"/>
+			<path class="fil2" d="M494 476l-15-94-188-144-52 61z"/>
+			<path class="fil1" d="M239 299l52-61L103 94l15 94 36 52z"/>
+			<path class="fil2" d="M343 177L89 0l14 94 188 144z"/>
+		</g>
+
+		<path id="svg-bottom-back" class="fil4" d="M438 476L121 260 96 432l65 44z"/>
+		<g id="svg-bottom-fore">
+			<path class="fil2" d="M300 476l-134-91-50 60 45 31zM166 385l51-60-96-65-12 86z"/>
+			<path class="fil1" d="M217 325l-51 60 134 91h138L280 368z"/>
+			<path class="fil3" d="M166 385l-57-39-13 86 20 13z"/>
+		</g>
+
+		<path id="svg-text" d="M56 623H0v-32h21v12h14v-16L1 561v-41h55v31H36v-11H22v13l34 26v44zm31 0H66v-86l16-17h45v103h-22v-34H87v34zm18-53v-30H87v30h18zm51 53h-21v-86l16-17h45v103h-21v-34h-19v34zm19-53v-30h-19v30h19zm29-50h44l16 17v71l-14 15h-46V520zm39 83v-63h-18v63h18zm128-37v57h-22v-38h-22v38h-21V520h21v46h2l20-46h21l-19 46h20zm31-4h18v-42h22v103h-22v-41h-18v41h-21V520h21v42zm70 61h-21v-86l16-17h45v103h-21v-34h-19v34zm19-53v-30h-19v30h19zm71 9v-59h20v103h-21l-21-59v59h-20V520h21l21 59z" fill="#079abf" fill-rule="nonzero"/>
+						
+	</g>
+</svg>

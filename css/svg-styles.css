@@ -1,0 +1,343 @@
+/* 
+---------------------
+SVG STYLES START HERE
+--------------------- 
+*/
+
+.logo-div #svg-logo-container {
+	width: 50%;
+	overflow: visible;
+}
+
+#svg-diamond-back {
+	animation: svg-animation-diamond-back linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-diamond-back {
+	0% {
+		opacity: 0;
+		transform: scale(1) rotateZ(52.486deg);
+		clip-path: circle(0%);
+	}
+	10% {
+		opacity: 1;
+		transform: scale(1) rotateZ(52.486deg);
+		clip-path: circle(100%);
+	}
+	40% {
+		transform: rotateZ(52.486deg);
+	}
+	50% {
+		transform: rotateZ(-0deg);
+	}
+}
+
+#svg-diamond-fore {
+	animation: svg-animation-diamond-fore linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-diamond-fore {
+	0% {
+		transform: scale(1) rotateZ(52.486deg);
+		opacity: 0;
+	}
+	10% {
+		transform: rotateZ(52.486deg);
+		opacity: 0;
+	}
+	20% {
+		opacity: 1;
+		transform: rotateZ(52.486deg) scale(1);
+	}
+	23% {
+		transform: rotateZ(52.486deg) scale(1.3) translate(0);
+	}
+	26% {
+		transform: rotateZ(52.486deg) scale(1);
+	}
+	29% {
+		transform: rotateZ(52.486deg) scale(1.3) translate(0);
+	}
+	32% {
+		transform: rotateZ(52.486deg) scale(1);
+	}
+	40% {
+		transform: rotateZ(52.486deg);
+	}
+	50% {
+		transform: rotateZ(-0deg);
+	}
+}
+
+#svg-middle-back {
+	animation: svg-animation-middle-back linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-middle-back {
+	0% {
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+	60% {
+		opacity: 0;
+	}
+	61% {
+		opacity: 1;
+	}
+}
+
+#svg-middle-fore {
+	animation: svg-animation-middle-fore linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-middle-fore {
+	0% {
+		opacity: 0;
+		clip-path: circle(0%);
+	}
+	49% {
+		opacity: 0;
+		clip-path: circle(0%);
+	}
+	50% {
+		opacity: 1;
+		clip-path: circle(0%);
+	}
+	60% {
+		opacity: 1;
+		clip-path: circle(100%);
+	}
+}
+
+#svg-connectors {
+	animation: svg-animation-connectors linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-connectors {
+	0% {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+	59% {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+	60% {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+	65% {
+		opacity: 0;
+	}
+	70% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
+
+#svg-top-back {
+	animation: svg-animation-top-back linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-top-back {
+	0% {
+		opacity: 0;
+	}
+	70% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+}
+
+#svg-top-fore {
+	animation: svg-animation-top-fore linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-top-fore {
+	0% {
+		opacity: 0;
+		clip-path: inset(0 100% 0 0);
+	}
+	69% {
+		opacity: 0;
+		clip-path: inset(0 100% 0 0);
+	}
+	70% {
+		opacity: 1;
+		clip-path: inset(0 100% 0 0);
+	}
+	80% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+#svg-bottom-back {
+	animation: svg-animation-bottom-back linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-bottom-back {
+	0% {
+		opacity: 0;
+	}
+	70% {
+		opacity: 0;
+	}
+	80% {
+		opacity: 1;
+	}
+}
+
+#svg-bottom-fore {
+	animation: svg-animation-bottom-fore linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-bottom-fore {
+	0% {
+		opacity: 0;
+		clip-path: inset(0 0 0 100%);
+	}
+	69% {
+		opacity: 0;
+		clip-path: inset(0 0 0 100%);
+	}
+	70% {
+		opacity: 1;
+		clip-path: inset(0 0 0 100%);
+	}
+	80% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+#svg-text {
+	animation: svg-animation-text linear 3s;
+	transform-origin: 50% 50% 0;
+}
+
+@keyframes svg-animation-text {
+	0% {
+		opacity: 0;
+		clip-path: inset(0 0 100% 0);
+	}
+	89% {
+		opacity: 0;
+		clip-path: inset(0 0 100% 0);
+	}
+	90% {
+		opacity: 1;
+		clip-path: inset(0 0 100% 0);
+	}
+	100% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+/* 
+---------------------
+SVG STYLES END HERE
+--------------------- 
+*/
+
+/* 
+---------------------
+SVG LOADING DIAMOND STYLES START HERE
+--------------------- 
+*/
+
+#diamond-1 {
+	animation: svg-diamond-1 ease-out 1s infinite;
+}
+@keyframes svg-diamond-1 {
+	0% {
+		opacity: 0;
+		clip-path: inset(0 0 100% 0);
+	}
+	20% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+	}
+}
+#diamond-2 {
+	animation: svg-diamond-2 ease-out 1s infinite;
+}
+@keyframes svg-diamond-2 {
+	0% {
+		opacity: 0;
+		clip-path: inset(0 0 0 100%);
+	}
+	20% {
+		opacity: 0;
+		clip-path: inset(0 0 0 100%);
+	}
+	40% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+	}
+}
+#diamond-3 {
+	animation: svg-diamond-3 ease-out 1s infinite;
+}
+@keyframes svg-diamond-3 {
+	0% {
+		opacity: 0;
+		clip-path: inset(100% 0 0 0);
+	}
+	20% {
+		opacity: 0;
+		clip-path: inset(100% 0 0 0);
+	}
+	40% {
+		opacity: 0;
+		clip-path: inset(100% 0 0 0);
+	}
+	60% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+	}
+}
+#diamond-4 {
+	animation: svg-diamond-4 ease-out 1s infinite;
+}
+@keyframes svg-diamond-4 {
+	0% {
+		opacity: 0;
+		clip-path: inset(0 100% 0 0);
+	}
+	20% {
+		opacity: 0;
+		clip-path: inset(0 100% 0 0);
+	}
+	40% {
+		opacity: 0;
+		clip-path: inset(0 100% 0 0);
+	}
+	60% {
+		opacity: 0;
+		clip-path: inset(0 100% 0 0);
+	}
+	80% {
+		opacity: 1;
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+/* 
+---------------------
+SVG LOADING DIAMOND STYLES END HERE
+--------------------- 
+*/

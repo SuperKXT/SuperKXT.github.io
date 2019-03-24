@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1157 1157">
+	<defs>
+		<style>
+			#diamond-1 {
+				animation: svg-diamond-1 ease-out 1s infinite;
+			}
+			@keyframes svg-diamond-1 {
+				0% {
+					opacity: 0;
+					clip-path: inset(0 0 100% 0);
+				}
+				20% {
+					opacity: 1;
+					clip-path: inset(0 0 0 0);
+				}
+			}
+			#diamond-2 {
+				animation: svg-diamond-2 ease-out 1s infinite;
+			}
+			@keyframes svg-diamond-2 {
+				0% {
+					opacity: 0;
+					clip-path: inset(0 0 0 100%);
+				}
+				20% {
+					opacity: 0;
+					clip-path: inset(0 0 0 100%);
+				}
+				40% {
+					opacity: 1;
+					clip-path: inset(0 0 0 0);
+				}
+			}
+			#diamond-3 {
+				animation: svg-diamond-3 ease-out 1s infinite;
+			}
+			@keyframes svg-diamond-3 {
+				0% {
+					opacity: 0;
+					clip-path: inset(100% 0 0 0);
+				}
+				20% {
+					opacity: 0;
+					clip-path: inset(100% 0 0 0);
+				}
+				40% {
+					opacity: 0;
+					clip-path: inset(100% 0 0 0);
+				}
+				60% {
+					opacity: 1;
+					clip-path: inset(0 0 0 0);
+				}
+			}
+			#diamond-4 {
+				animation: svg-diamond-4 ease-out 1s infinite;
+			}
+			@keyframes svg-diamond-4 {
+				0% {
+					opacity: 0;
+					clip-path: inset(0 100% 0 0);
+				}
+				20% {
+					opacity: 0;
+					clip-path: inset(0 100% 0 0);
+				}
+				40% {
+					opacity: 0;
+					clip-path: inset(0 100% 0 0);
+				}
+				60% {
+					opacity: 0;
+					clip-path: inset(0 100% 0 0);
+				}
+				80% {
+					opacity: 1;
+					clip-path: inset(0 0 0 0);
+				}
+			}
+		</style>
+	</defs>
+	<path id="diamond-4" fill="#0aa5cc" d="M0 578h578V0z"/>
+	<path id="diamond-1" fill="#12b7e0" d="M578 0v578h579z"/>
+	<path id="diamond-3" fill="#037d9c" d="M578 578H0l578 579z"/>
+	<path id="diamond-2" fill="#0aa5cc" d="M578 578v579l579-579z"/>
+</svg>

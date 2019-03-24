@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1157 1157">
+	<path id="diamond-4" fill="#0aa5cc" d="M0 578h578V0z"/>
+	<path id="diamond-1" fill="#12b7e0" d="M578 0v578h579z"/>
+	<path id="diamond-3" fill="#037d9c" d="M578 578H0l578 579z"/>
+	<path id="diamond-2" fill="#0aa5cc" d="M578 578v579l579-579z"/>
+</svg>
