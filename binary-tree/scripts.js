@@ -63,7 +63,7 @@ button.addEventListener('click', (event) => {
 	}
 	else {
 		button.textContent = 'Stop Autogenerate';
-		setInterval(() => {
+		intervalId = setInterval(() => {
 			let newValue = (
 				Number(input.value) > 32
 					? 1
