@@ -60,6 +60,8 @@ button.addEventListener('click', (event) => {
 		intervalId = undefined;
 		button.textContent = 'Autogenerate';
 		input.value = 1;
+		const tree = printBinaryTree(1);
+		display.textContent = tree;
 	}
 	else {
 		button.textContent = 'Stop Autogenerate';
