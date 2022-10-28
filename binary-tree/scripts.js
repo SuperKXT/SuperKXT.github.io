@@ -63,12 +63,11 @@ button.addEventListener('click', (event) => {
 	else {
 		button.textContent = 'Stop Autogenerate';
 		intervalId = setInterval(() => {
-			let newValue = (
-				Number(input.value) > 32
+			const newValue = (
+				Number(input.value) === 32
 					? 1
 					: Number(input.value) + 1
 			);
-			if (newValue === 32) newValue = 1;
 			input.value = newValue;
 			const tree = printBinaryTree(newValue);
 			display.textContent = tree;
