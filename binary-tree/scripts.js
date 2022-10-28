@@ -44,7 +44,12 @@ const button = document.getElementById('switch');
 let intervalId = undefined;
 
 input.addEventListener('keyup', (event) => {
-	const tree = printBinaryTree(parseInt(event.target.value));
+	let number = parseInt(event.target.value);
+	if (isNaN(number) || number > 1000) {
+		input.value = 1;
+		number = 1;
+	};
+	const tree = printBinaryTree(number);
 	display.textContent = tree;
 });
 
