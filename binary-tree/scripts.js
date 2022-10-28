@@ -53,7 +53,8 @@ input.addEventListener('keyup', (event) => {
 	display.textContent = tree;
 });
 
-button.addEventListener('click', () => {
+button.addEventListener('click', (event) => {
+	event.currentTarget.blur();
 	if (intervalId) {
 		clearInterval(intervalId);
 		intervalId = undefined;
