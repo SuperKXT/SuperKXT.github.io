@@ -1,0 +1,307 @@
+:root {
+	--fg-1-light: #333;
+	--fg-2-light: #555;
+	--fg-3-light: #777;
+	--bg-1-light-: #f3fff3;
+	--bg-2-light: #e7f7e7;
+	--bg-3-light: #e1f1e1;
+	--accent-1-light: #2abf63;
+	--accent-2-light: #1f9c4f;
+	--accent-3-light: #17733a;
+
+	--fg-1-dark: #fff3ff;
+	--fg-2-dark: #f7e7f7;
+	--fg-3-dark: #f1e1f1;
+	--bg-1-dark: #333;
+	--bg-2-dark: #555;
+	--bg-3-dark: #777;
+	--accent-1-dark: #2abf63;
+	--accent-2-dark: #1f9c4f;
+	--accent-3-dark: #17733a;
+
+	font-size: 20px;
+	font-family: 'Barlow', sans-serif;
+}
+
+#toggle-theme {
+	display: none;
+}
+
+#toggle-theme + label {
+	--toggle-size: 50;
+	--toggle-size-px: calc(var(--toggle-size) * 1px);
+	cursor: pointer;
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	font-size: 25px;
+	width: var(--toggle-size-px);
+	height: var(--toggle-size-px);
+	aspect-ratio: 1;
+	display: flex;
+	overflow: hidden;
+	transition: font-size 0.1s linear;
+}
+
+#toggle-theme + label:hover {
+	font-size: 30px;
+}
+
+#toggle-theme + label > div {
+	width: 100%;
+	height: 300%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	transition: transform 0.2s linear;
+}
+
+#toggle-theme:checked + label > div {
+	transform: translateY(calc(-2 * var(--toggle-size) * 1px));
+}
+
+#toggle-theme + label > div > span {
+	width: var(--toggle-size-px);
+	height: var(--toggle-size-px);
+	aspect-ratio: 1;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+* {
+	box-sizing: border-box !important;
+	transition:
+		color 0.2s linear,
+		background-color 0.2s linear,
+		border 0.2s linear,
+		transform 0.2s linear,
+		opacity 0.2s linear,
+		outline-width 0.2s linear,
+		outline-offset 0.2s linear !important;
+}
+
+body {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+
+main {
+	--fg-1: var(--fg-1-light);
+	--fg-2: var(--fg-2-light);
+	--fg-3: var(--fg-3-light);
+	--bg-1: var(--bg-1-light-);
+	--bg-2: var(--bg-2-light);
+	--bg-3: var(--bg-3-light);
+	--accent-1: var(--accent-1-light);
+	--accent-2: var(--accent-2-light);
+	--accent-3: var(--accent-3-light);
+
+	color: var(--fg-1);
+	accent-color: var(--accent-1);
+	margin: 0;
+	padding: 0;
+	display: flex;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 10px;
+	gap: 10px;
+	background-color: var(--bg-1);
+	overflow: hidden;
+	text-align: center;
+}
+
+#toggle-theme:checked ~ main {
+	--fg-1: var(--fg-1-dark);
+	--fg-2: var(--fg-2-dark);
+	--fg-3: var(--fg-3-dark);
+	--bg-1: var(--bg-1-dark);
+	--bg-2: var(--bg-2-dark);
+	--bg-3: var(--bg-3-dark);
+	--accent-1: var(--accent-1-dark);
+	--accent-2: var(--accent-2-dark);
+	--accent-3: var(--accent-3-dark);
+}
+
+#github-link {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: transform 0.1s linear;
+}
+
+#github-link:hover {
+	transform: scale(1.1);
+}
+
+#github-link > svg > path {
+	fill: var(--accent-2);
+}
+
+main > h1 {
+	color: var(--accent-2);
+	margin: 0;
+}
+
+#keyboard {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	gap: 10px;
+}
+
+#keyboard > .row {
+	display: flex;
+	gap: 10px;
+	flex-wrap: nowrap;
+}
+
+#keyboard > .row > button {
+	all: unset;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 800;
+	width: 50px;
+	aspect-ratio: 1;
+	border: 2px solid var(--bg-3);
+	border-radius: 5px;
+	background-color: var(--bg-2);
+	cursor: pointer;
+	outline-style: solid;
+	outline-color: var(--fg-3);
+	outline-width: 0px;
+	outline-offset: -5px;
+}
+
+#keyboard > .row > button:hover,
+#keyboard > .row > button:focus {
+	background-color: var(--accent-1);
+	border-color: var(--accent-2);
+	outline-width: 2px;
+	outline-offset: 5px;
+}
+
+main > input {
+	all: unset;
+	box-sizing: border-box;
+	width: min(100%, 500px);
+	padding: 10px;
+	font-size: 1rem;
+	border-radius: 10px;
+	background-color: var(--bg-2);
+	border: 2px solid var(--fg-3);
+	outline-style: solid;
+	outline-color: var(--fg-3);
+	outline-width: 0px;
+	outline-offset: -5px;
+	transition: outline-offset 0.2s linear, background-color 0.2s linear, border-color 0.2s linear;
+	text-align: left;
+}
+
+main > input:hover,
+main > input:focus {
+	background-color: var(--bg-3);
+	border-color: var(--fg-2);
+	outline-width: 2px;
+	outline-offset: 5px;
+}
+
+main > div {
+	display: flex;
+	justify-content: center;
+	margin: 20px;
+	width: 100%;
+	white-space: pre;
+	font-family: 'Source Code Pro', monospace;
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow: auto;
+	scroll-behavior: smooth;
+	text-align: left;
+}
+
+main > button {
+	all: unset;
+	box-sizing: border-box;
+	background-color: var(--accent-3);
+	color: white;
+	border: 2px solid var(--fg-1);
+	padding: 10px;
+	border-radius: 5px;
+	text-transform: uppercase;
+	cursor: pointer;
+	outline-style: solid;
+	outline-color: var(--fg-3);
+	outline-width: 0px;
+	outline-offset: -5px;
+	transition: outline-offset 0.2s linear, background-color 0.2s linear, border-color 0.2s linear;
+}
+
+main > button:hover,
+main > button:focus {
+	background-color: var(--accent-2);
+	border-color: var(--accent-3);
+	outline-width: 2px;
+	outline-offset: 5px;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+	main {
+		--fg-1: var(--fg-1-dark);
+		--fg-2: var(--fg-2-dark);
+		--fg-3: var(--fg-3-dark);
+		--bg-1: var(--bg-1-dark);
+		--bg-2: var(--bg-2-dark);
+		--bg-3: var(--bg-3-dark);
+		--accent-1: var(--accent-1-dark);
+		--accent-2: var(--accent-2-dark);
+		--accent-3: var(--accent-3-dark);
+	}
+
+	#toggle-theme:checked ~ main {
+		--fg-1: var(--fg-1-light);
+		--fg-2: var(--fg-2-light);
+		--fg-3: var(--fg-3-light);
+		--bg-1: var(--bg-1-light-);
+		--bg-2: var(--bg-2-light);
+		--bg-3: var(--bg-3-light);
+		--accent-1: var(--accent-1-light);
+		--accent-2: var(--accent-2-light);
+		--accent-3: var(--accent-3-light);
+	}
+
+	#toggle-theme + label > div {
+		flex-direction: column-reverse;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	:root {
+		font-size: 14px;
+	}
+
+	#toggle-theme + label,
+	#github-link {
+		top: unset;
+		bottom: 10px;
+	}
+}
