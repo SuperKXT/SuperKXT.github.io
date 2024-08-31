@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
+    "@fontsource-variable/noto-nastaliq-urdu": "^5.0.13",
     "astro": "^4.6.0",
     "typescript": "^5.4.5"
   },
