@@ -1,29 +1,35 @@
 ---
+import '@fontsource-variable/noto-nastaliq-urdu';
 import Layout from '../layouts/Layout.astro';
+const veggieTitle = 'سبزی';
+const dalTitle = 'دال';
+const chickenTitle = 'مرغی';
+const titleMap = { veggie: veggieTitle, dal: dalTitle, chicken: chickenTitle };
+const classMap: Record<string, string> = { [veggieTitle]: 'veggie', [dalTitle]: 'dal', [chickenTitle]: 'chicken' };
 const menuList = [
 	['چنے والے چاول'], // Mon
-	['مرغی'], // Tue
+	[titleMap.chicken], // Tue
 	['کڑھی'], // Wed
 	['پاستا'], // Thu
-	['سبزی'], // Fri
-	['مرغی'], // Sat
-	['دال'], // Sun
+	[titleMap.veggie], // Fri
+	[titleMap.chicken], // Sat
+	[titleMap.dal], // Sun
 	['آلو انڈے', 'آلو کے پراٹھے'], // Mon
-	['مرغی'], // Tue
+	[titleMap.chicken], // Tue
 	['لال لوبیا'], // Wed
 	['فرائڈ رائس'], // Thu
-	['سبزی'], // Fri
-	['مرغی'], // Sat
-	['دال'], // Sun
+	[titleMap.veggie], // Fri
+	[titleMap.chicken], // Sat
+	[titleMap.dal], // Sun
 ];
 const dayNames = ['سوموار', 'منگل', 'بدھ', 'جمعرات', 'جمعہ', 'ہفتہ', 'اتوار'];
 const veggies = ['مٹر والے چاول', 'پالک', 'مکس سبزی', 'کریلے', 'پھول گوبھی', 'بھنڈی', 'شلجم', 'کدو'];
-const dals = ['دال جنا', 'سفید لوبیا', 'دال ماش', 'حلیم', 'دال چنا چاول'];
+const dals = ['دال چنا', 'سفید لوبیا', 'دال ماش', 'حلیم', 'دال چنا چاول'];
 const chickens = ['بریانی', 'قورمہ', 'اچار گوشت', 'قیمہ'];
-const details = [
-	{ name: 'veggie', title: 'سبزی', items: veggies },
-	{ name: 'dal', title: 'دال', items: dals },
-	{ name: 'chicken', title: 'مرغی', items: chickens },
+const details: { name: keyof typeof titleMap; items: string[] }[] = [
+	{ name: 'veggie', items: veggies },
+	{ name: 'dal', items: dals },
+	{ name: 'chicken', items: chickens },
 ]
 ---
 
@@ -35,7 +41,7 @@ const details = [
 					<div class="day-no">{idx + 1}</div>
 					<div class="day-name">{dayNames[idx % 7]}</div>
 					<div class="day-menu">
-						{r.map((item) => <div>{item}</div>)}
+						{r.map((item) => <div class={classMap[item]}>{item}</div>)}
 					</div>
 				</div>
 			))}
@@ -43,7 +49,7 @@ const details = [
 		<div class="detail-grid">
 			{details.map(r => (
 				<div class={`detail-item light ${r.name}`}>
-					<div class={`detail-title ${r.name}`}>{r.title}</div>
+					<div class={`detail-title ${r.name}`}>{titleMap[r.name]}</div>
 					{r.items.map(item => <div class={r.name}>{item}</div>)}
 				</div>
 			))}
@@ -60,13 +66,12 @@ const details = [
 		padding: 15px;
 		gap: 15px;
 		color: white;
-		font-size: 20px;
-		line-height: 1.6;
 		background-color: white;
+		font-family: "Noto Nastaliq Urdu Variable", system-ui, sans-serif;
 	}
 	div {
 		border-radius: 10px;
-		padding: 10px;
+		padding-inline: 10px;
 		background-color: white;
 		color: #1B4152;
 		border: 2px solid #1B4152;
@@ -94,23 +99,30 @@ const details = [
 		align-items: center;
 		background-color: #3a6070;
 		color: white;
+		height: 50px;
 	}
 	.day-name {
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		height: 50px;
 	}
 	.day-menu {
 		display: flex;
 		flex-wrap: nowrap;
 		padding: 0;
 		border: 0;
+		height: 50px;
 	}
 	.day-menu > div {
 		border-radius: 0;
 		flex: 1;
 		display: flex;
 		align-items: center;
+		height: 50px;
+	}
+	.day-menu > :not(.veggie, .chicken, .dal) {
+		background-color: #daedf4;
 	}
 	.day-menu > :first-child {
 		border-start-start-radius: 10px;
@@ -155,6 +167,7 @@ const details = [
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		height: 50px;
 	}
 	.veggie {
 		background-color: #f2f5a4;
