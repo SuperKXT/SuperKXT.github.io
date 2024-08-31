@@ -37,7 +37,7 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 	<main>
 		<div class="day-grid">
 			{menuList.map((r, idx) => (
-				<div class="day-item">
+				<div id={`day-${idx}`} class="day-item">
 					<div class="day-no">{idx + 1}</div>
 					<div class="day-name">{dayNames[idx % 7]}</div>
 					<div class="day-menu">
@@ -107,6 +107,12 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		align-items: center;
 		height: 50px;
 	}
+
+	.active > :is(.day-name, .day-no) {
+		background-color: #3a6070;
+		color: white;
+	}
+
 	.day-menu {
 		display: flex;
 		flex-wrap: nowrap;
@@ -194,3 +200,15 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		background-color: #ffe7e3;
 	}
 </style>
+
+<script>
+	const start = new Date('2024-08-26');
+	const milliSecondsInDay = 1000 * 60 * 60 * 24;
+	const startDays = Math.floor(start.getTime() / milliSecondsInDay);
+	const today = new Date();
+	const todayDays = Math.floor(today.getTime() / milliSecondsInDay);
+	const daysSince = todayDays - startDays;
+	const currIdx = daysSince % 7;
+	const item = document.getElementById(`day-${currIdx}`);
+	item?.classList.add('active');
+</script>
