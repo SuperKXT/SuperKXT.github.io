@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+const menuList = [
+	['چنے والے چاول'], // Mon
+	['مرغی'], // Tue
+	['کڑھی'], // Wed
+	['پاستا'], // Thu
+	['سبزی'], // Fri
+	['مرغی'], // Sat
+	['دال'], // Sun
+	['آلو انڈے', 'آلو کے پراٹھے'], // Mon
+	['مرغی'], // Tue
+	['لال لوبیا'], // Wed
+	['فرائڈ رائس'], // Thu
+	['سبزی'], // Fri
+	['مرغی'], // Sat
+	['دال'], // Sun
+];
+const dayNames = ['سوموار', 'منگل', 'بدھ', 'جمعرات', 'جمعہ', 'ہفتہ', 'اتوار'];
+const veggies = ['مٹر والے چاول', 'پالک', 'مکس سبزی', 'کریلے', 'پھول گوبھی', 'بھنڈی', 'شلجم', 'کدو'];
+const dals = ['دال جنا', 'سفید لوبیا', 'دال ماش', 'حلیم', 'دال چنا چاول'];
+const chickens = ['بریانی', 'قورمہ', 'اچار گوشت', 'قیمہ'];
+const details = [
+	{ name: 'veggie', title: 'سبزی', items: veggies },
+	{ name: 'dal', title: 'دال', items: dals },
+	{ name: 'chicken', title: 'مرغی', items: chickens },
+]
+---
+
+<Layout title="Menu">
+	<main>
+		<div class="day-grid">
+			{menuList.map((r, idx) => (
+				<div class="day-item">
+					<div class="day-no">{idx + 1}</div>
+					<div class="day-name">{dayNames[idx % 7]}</div>
+					<div class="day-menu">
+						{r.map((item) => <div>{item}</div>)}
+					</div>
+				</div>
+			))}
+		</div>
+		<div class="detail-grid">
+			{details.map(r => (
+				<div class={`detail-item light ${r.name}`}>
+					<div class={`detail-title ${r.name}`}>{r.title}</div>
+					{r.items.map(item => <div class={r.name}>{item}</div>)}
+				</div>
+			))}
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		max-width: 1000px;
+		margin-inline: auto;
+		padding: 15px;
+		gap: 15px;
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+		background-color: white;
+	}
+	div {
+		border-radius: 10px;
+		padding: 10px;
+		background-color: white;
+		color: #1B4152;
+		border: 2px solid #1B4152;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	.day-grid {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+		gap: 10px;
+		border: none;
+	}
+	.day-item {
+		display: grid;
+		grid-template-columns: 1fr 2fr 10fr;
+		padding: 0;
+		gap: 10px;
+		direction: rtl;
+		border: 0;
+	}
+	.day-no {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #3a6070;
+		color: white;
+	}
+	.day-name {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.day-menu {
+		display: flex;
+		flex-wrap: nowrap;
+		padding: 0;
+		border: 0;
+	}
+	.day-menu > div {
+		border-radius: 0;
+		flex: 1;
+		display: flex;
+		align-items: center;
+	}
+	.day-menu > :first-child {
+		border-start-start-radius: 10px;
+		border-end-start-radius: 10px;
+	}
+	.day-menu > :last-child {
+		border-end-end-radius: 10px;
+		border-start-end-radius: 10px;
+	}
+	.day-menu > :not(:first-child) {
+		border-inline-start: none;
+	}
+	.detail-grid {
+		display: flex;
+		flex-wrap: nowrap;
+		border: none;
+		gap: 15px;
+		direction: rtl;
+	}
+	.detail-item {
+		flex: 1;
+		display: grid;
+		padding: 10px;
+		gap: 10px;
+		margin-top: 35px;
+		padding-top: 35px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: max-content;
+		position: relative;
+	}
+	.detail-title {
+		position: absolute;
+		height: 50px;
+		width: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		top: -25px;
+		left: calc(50% - 75px);
+	}
+	.detail-item > div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.veggie {
+		background-color: #f2f5a4;
+		color: #4c4b12;
+		border-color: currentColor;
+	}
+	.veggie.light {
+		background-color: #f9fcc7;
+	}
+	.dal {
+		background-color: #91ebb7;
+		color: #0f4426;
+		border-color: currentColor;
+	}
+	.dal.light {
+		background-color: #dae2de;
+	}
+	.chicken {
+		background-color: #fab0a5;
+		color: #511f18;
+		border-color: currentColor;
+	}
+	.chicken.light {
+		background-color: #ffe7e3;
+	}
+</style>
