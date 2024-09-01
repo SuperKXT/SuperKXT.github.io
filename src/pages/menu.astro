@@ -199,6 +199,11 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 	.chicken.light {
 		background-color: #ffe7e3;
 	}
+	@media (max-width: 768px) {
+		.detail-grid {
+			flex-direction: column;
+		}
+	}
 </style>
 
 <script>
