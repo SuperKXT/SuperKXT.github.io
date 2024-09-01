@@ -22,6 +22,7 @@ const menuList = [
 	[titleMap.chicken], // Sat
 	[titleMap.dal], // Sun
 ];
+const dayNumbers = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۱۰', '۱۱', '۱۲', '۱۳', '۱۴'];
 const dayNames = ['سوموار', 'منگل', 'بدھ', 'جمعرات', 'جمعہ', 'ہفتہ', 'اتوار'];
 const veggies = ['مٹر والے چاول', 'پالک', 'مکس سبزی', 'کریلے', 'پھول گوبھی', 'بھنڈی', 'شلجم', 'کدو'];
 const dals = ['دال چنا', 'سفید لوبیا', 'دال ماش', 'حلیم', 'دال چنا چاول'];
@@ -38,7 +39,7 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		<div class="day-grid">
 			{menuList.map((r, idx) => (
 				<div id={`day-${idx}`} class="day-item">
-					<div class="day-no">{idx + 1}</div>
+					<div class="day-no">{dayNumbers[idx]}</div>
 					<div class="day-name">{dayNames[idx % 7]}</div>
 					<div class="day-menu">
 						{r.map((item) => <div class={classMap[item]}>{item}</div>)}
