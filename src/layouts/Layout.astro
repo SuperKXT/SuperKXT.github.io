@@ -17,25 +17,68 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<input
+			type='checkbox'
+			name='toggle-theme'
+			id='toggle-theme'
+		>
+		<label for='toggle-theme'>
+			<div>
+				<span>🌖</span>
+				<span>🌞</span>
+			</div>
+		</label>
 		<slot />
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--bg-light: white;
+		--fg-light: #3a6070;
+		--border-color-light: #1B4152;
+		--bg-dark: #181a1b;
+		--fg-dark: white;
+		--border-color-dark: #3785a7;
+
+		--info-bg-light: #daedf4;
+		--info-color-light: #1B4152;
+		--info-light-bg-light: #daedf4;
+		--info-bg-dark: #12323e;
+		--info-color-dark: #cfd8db;
+		--info-light-bg-dark: #3785a7;
+
+		--success-bg-light: #91ebb7;
+		--success-color-light: #0f4426;
+		--success-light-bg-light: #dae2de;
+		--success-bg-dark: #146d46;
+		--success-color-dark: #cecac3;
+		--success-light-bg-dark: #28332f;
+
+		--warning-bg-light: #f2f5a4;
+		--warning-color-light: #4c4b12;
+		--warning-light-bg-light: #f9fcc7;
+		--warning-bg-dark: #4a4b08;
+		--warning-color-dark: #cac6bf;
+		--warning-light-bg-dark: #3b3e03;
+
+		--error-bg-light: #fab0a5;
+		--error-color-light: #511f18;
+		--error-light-bg-light: #ffe7e3;
+		--error-bg-dark: #661206;
+		--error-color-dark: #e3a79f;
+		--error-light-bg-dark: #440a00;
+
+		--day-bg-light: #3a6070;
+		--day-color-light: white;
+		--day-bg-dark: #2e4d5a;
+		--day-color-dark: #9fccdf;
 	}
 	html {
 		font-family: system-ui, sans-serif;
 		background: #13151a;
 		background-size: 224px;
+		color: var(--fg);
+		background-color: var(--bg);
 	}
 	code {
 		font-family:
@@ -88,5 +131,168 @@ const { title } = Astro.props;
 	*/
 	p, h1, h2, h3, h4, h5, h6 {
 		overflow-wrap: break-word;
+	}
+
+	#toggle-theme {
+		display: none;
+	}
+
+	#toggle-theme + label {
+		--toggle-size: 50;
+		--toggle-size-px: calc(var(--toggle-size) * 1px);
+		cursor: pointer;
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		font-size: 2em;
+		width: var(--toggle-size-px);
+		height: var(--toggle-size-px);
+		aspect-ratio: 1;
+		display: flex;
+		overflow: hidden;
+		transition: font-size 0.1s linear;
+	}
+
+	#toggle-theme + label:hover {
+		font-size: 2.2em;
+	}
+
+	#toggle-theme + label > div {
+		width: 100%;
+		height: 300%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		transition: transform 0.2s linear;
+	}
+
+	#toggle-theme:checked + label > div {
+		transform: translateY(calc(-2 * var(--toggle-size) * 1px));
+	}
+
+	#toggle-theme + label > div > span {
+		width: var(--toggle-size-px);
+		height: var(--toggle-size-px);
+		aspect-ratio: 1;
+		flex-shrink: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	:root {
+		--bg: var(--bg-light);
+		--fg: var(--fg-light);
+		--border-color: var(--border-color-light);
+
+		--info-bg: var(--info-bg-light);
+		--info-color: var(--info-color-light);
+		--info-light-bg: var(--info-light-bg-light);
+
+		--success-bg: var(--success-bg-light);
+		--success-color: var(--success-color-light);
+		--success-light-bg: var(--success-light-bg-light);
+
+		--warning-bg: var(--warning-bg-light);
+		--warning-color: var(--warning-color-light);
+		--warning-light-bg: var(--warning-light-bg-light);
+
+		--error-bg: var(--error-bg-light);
+		--error-color: var(--error-color-light);
+		--error-light-bg: var(--error-light-bg-light);
+
+		--day-bg: var(--day-bg-light);
+		--day-color: var(--day-color-light);
+	}
+	:root:has(#toggle-theme:checked) {
+		--bg: var(--bg-dark);
+		--fg: var(--fg-dark);
+		--border-color: var(--border-color-dark);
+
+		--info-bg: var(--info-bg-dark);
+		--info-color: var(--info-color-dark);
+		--info-light-bg: var(--info-light-bg-dark);
+
+		--success-bg: var(--success-bg-dark);
+		--success-color: var(--success-color-dark);
+		--success-light-bg: var(--success-light-bg-dark);
+
+		--warning-bg: var(--warning-bg-dark);
+		--warning-color: var(--warning-color-dark);
+		--warning-light-bg: var(--warning-light-bg-dark);
+
+		--error-bg: var(--error-bg-dark);
+		--error-color: var(--error-color-dark);
+		--error-light-bg: var(--error-light-bg-dark);
+
+		--day-bg: var(--day-bg-dark);
+		--day-color: var(--day-color-dark);
+	}
+	@media only screen and (prefers-color-scheme: dark) {
+		:root {
+			--bg: var(--bg-dark);
+			--fg: var(--fg-dark);
+			--border-color: var(--border-color-dark);
+
+			--info-bg: var(--info-bg-dark);
+			--info-color: var(--info-color-dark);
+			--info-light-bg: var(--info-light-bg-dark);
+
+			--success-bg: var(--success-bg-dark);
+			--success-color: var(--success-color-dark);
+			--success-light-bg: var(--success-light-bg-dark);
+
+			--warning-bg: var(--warning-bg-dark);
+			--warning-color: var(--warning-color-dark);
+			--warning-light-bg: var(--warning-light-bg-dark);
+
+			--error-bg: var(--error-bg-dark);
+			--error-color: var(--error-color-dark);
+			--error-light-bg: var(--error-light-bg-dark);
+
+			--day-bg: var(--day-bg-dark);
+			--day-color: var(--day-color-dark);
+		}
+		:root:has(#toggle-theme:checked) {
+			--bg: var(--bg-light);
+			--fg: var(--fg-light);
+			--border-color: var(--border-color-light);
+
+			--info-bg: var(--info-bg-light);
+			--info-color: var(--info-color-light);
+			--info-light-bg: var(--info-light-bg-light);
+
+			--success-bg: var(--success-bg-light);
+			--success-color: var(--success-color-light);
+			--success-light-bg: var(--success-light-bg-light);
+
+			--warning-bg: var(--warning-bg-light);
+			--warning-color: var(--warning-color-light);
+			--warning-light-bg: var(--warning-light-bg-light);
+
+			--error-bg: var(--error-bg-light);
+			--error-color: var(--error-color-light);
+			--error-light-bg: var(--error-light-bg-light);
+
+			--day-bg: var(--day-bg-light);
+		--day-color: var(--day-color-light);
+		}
+	}
+
+	@media only screen and (prefers-color-scheme: dark) {
+		main {
+			--bg: var(--bg-dark);
+			--fg-color: var(--fg-color-dark);
+		}
+
+		#toggle-theme:checked ~ main {
+			--bg: var(--bg-light);
+			--fg-color: var(--fg-color-light);
+		}
+
+		#toggle-theme + label > div {
+			flex-direction: column-reverse;
+		}
 	}
 </style>
