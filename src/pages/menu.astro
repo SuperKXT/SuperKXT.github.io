@@ -58,6 +58,57 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 </Layout>
 
 <style>
+	:root {
+		--bg-color: white;
+		--primary-color: #1B4152;
+		--border-primary-color: #1B4152;
+
+		--menu-bg: #daedf4;
+
+		--dal-bg: #91ebb7;
+		--dal-color: #0f4426;
+		--dal-light-bg: #dae2de;
+
+		--veggie-bg: #f2f5a4;
+		--veggie-color: #4c4b12;
+		--veggie-light-bg: #f9fcc7;
+
+		--chicken-bg: #fab0a5;
+		--chicken-color: #511f18;
+		--chicken-light-bg: #ffe7e3;
+
+		--day-bg: #3a6070;
+		--day-color: white;
+	}
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--bg-color: #181a1b;
+			--primary-color: white;
+			--border-primary-color: #3785a7;
+
+			--menu-bg: #12323e;
+
+			--dal-bg: #146d46;
+			--dal-color: #cecac3;
+			--dal-light-bg: #28332f;
+
+			--veggie-bg: #4a4b08;
+			--veggie-color: #cac6bf;
+			--veggie-light-bg: #3b3e03;
+
+			--chicken-bg: #661206;
+			--chicken-color: #e3a79f;
+			--chicken-light-bg: #440a00;
+
+			--day-bg: #2e4d5a;
+			--day-color: #9fccdf;
+		}
+	}
+	body {
+		color: var(--primary-color);
+		background-color: var(--bg-color);
+		font-family: "Noto Nastaliq Urdu Variable", system-ui, sans-serif;
+	}
 	main {
 		display: flex;
 		flex-direction: column;
@@ -65,16 +116,13 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		margin-inline: auto;
 		padding: 15px;
 		gap: 15px;
-		color: white;
-		background-color: white;
-		font-family: "Noto Nastaliq Urdu Variable", system-ui, sans-serif;
 	}
 	div {
 		border-radius: 10px;
 		padding-inline: 10px;
-		background-color: white;
-		color: #1B4152;
-		border: 2px solid #1B4152;
+		background-color: var(--bg-color);
+		color: var(--primary-color);
+		border: 2px solid var(--border-primary-color);
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
@@ -97,8 +145,8 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background-color: #3a6070;
-		color: white;
+		background-color: var(--day-bg);
+		color: var(--day-color);
 		height: 50px;
 	}
 	.day-name {
@@ -109,8 +157,8 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 	}
 
 	.active > :is(.day-name, .day-no) {
-		background-color: #3a6070;
-		color: white;
+		background-color: var(--day-bg);
+		color: var(--day-color);
 	}
 
 	.day-menu {
@@ -128,7 +176,7 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		height: 50px;
 	}
 	.day-menu > :not(.veggie, .chicken, .dal) {
-		background-color: #daedf4;
+		background-color: var(--menu-bg);
 	}
 	.day-menu > :first-child {
 		border-start-start-radius: 10px;
@@ -176,28 +224,28 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		height: 50px;
 	}
 	.veggie {
-		background-color: #f2f5a4;
-		color: #4c4b12;
+		background-color: var(--veggie-bg);
+		color: var(--veggie-color);
 		border-color: currentColor;
 	}
 	.veggie.light {
-		background-color: #f9fcc7;
+		background-color: var(--veggie-light-bg);
 	}
 	.dal {
-		background-color: #91ebb7;
-		color: #0f4426;
+		background-color: var(--dal-bg);
+		color: var(--dal-color);
 		border-color: currentColor;
 	}
 	.dal.light {
-		background-color: #dae2de;
+		background-color: var(--dal-light-bg);
 	}
 	.chicken {
-		background-color: #fab0a5;
-		color: #511f18;
+		background-color: var(--chicken-bg);
+		color: var(--chicken-color);
 		border-color: currentColor;
 	}
 	.chicken.light {
-		background-color: #ffe7e3;
+		background-color: var(--chicken-light-bg);
 	}
 </style>
 
