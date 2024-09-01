@@ -36,6 +36,7 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 
 <Layout title="Menu">
 	<main>
+		<h1>مینیو</h1>
 		<div class="day-grid">
 			{menuList.map((r, idx) => (
 				<div id={`day-${idx}`} class="day-item">
@@ -64,31 +65,36 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		flex-direction: column;
 		max-width: 1000px;
 		margin-inline: auto;
-		padding: 15px;
-		gap: 15px;
+		padding: var(--spacing-3);
+		gap: var(--spacing-3);
 		font-family: "Noto Nastaliq Urdu Variable", system-ui, sans-serif;
 	}
 	div {
 		border-radius: 10px;
-		padding-inline: 10px;
+		padding-inline: var(--spacing-3);
 		background-color: var(--bg);
 		color: var(--fg);
 		border: 2px solid var(--border-color);
 		white-space: nowrap;
 		text-overflow: ellipsis;
 	}
+	h1 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 	.day-grid {
 		display: flex;
 		flex-direction: column;
 		padding: 0;
-		gap: 10px;
+		gap: var(--spacing-2);
 		border: none;
 	}
 	.day-item {
 		display: grid;
 		grid-template-columns: 1fr 2fr 10fr;
 		padding: 0;
-		gap: 10px;
+		gap: var(--spacing-2);
 		direction: rtl;
 		border: 0;
 	}
@@ -110,6 +116,9 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 	.active > :is(.day-name, .day-no) {
 		background-color: var(--day-bg);
 		color: var(--day-color);
+	}
+	.active * {
+		border-color: var(--highlight);
 	}
 
 	.day-menu {
@@ -144,14 +153,14 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		display: flex;
 		flex-wrap: nowrap;
 		border: none;
-		gap: 15px;
+		gap: var(--spacing-3);
 		direction: rtl;
 	}
 	.detail-item {
 		flex: 1;
 		display: grid;
-		padding: 10px;
-		gap: 10px;
+		padding: var(--spacing-2);
+		gap: var(--spacing-2);
 		margin-top: 35px;
 		padding-top: 35px;
 		grid-template-columns: repeat(2, 1fr);
