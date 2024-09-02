@@ -118,7 +118,12 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 		color: var(--day-color);
 	}
 	.active * {
-		border-color: var(--highlight);
+		border-color: var(--highlight-fg) !important;
+
+		&:is(.day-name, .day-no) {
+			background-color: var(--highlight-bg) !important;
+			color: var(--highlight-fg) !important;
+		}
 	}
 
 	.day-menu {
@@ -137,6 +142,7 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 	}
 	.day-menu > :not(.veggie, .chicken, .dal) {
 		background-color: var(--info-bg);
+		color: var(--info-color)
 	}
 	.day-menu > :first-child {
 		border-start-start-radius: 10px;

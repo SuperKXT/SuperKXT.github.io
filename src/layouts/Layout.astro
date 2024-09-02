@@ -44,37 +44,39 @@ const { title } = Astro.props;
 		--info-color-light: #1B4152;
 		--info-light-bg-light: #daedf4;
 		--info-bg-dark: #12323e;
-		--info-color-dark: #cfd8db;
+		--info-color-dark: #E6E6E6;
 		--info-light-bg-dark: #3785a7;
 
 		--success-bg-light: #91ebb7;
 		--success-color-light: #0f4426;
 		--success-light-bg-light: #dae2de;
 		--success-bg-dark: #146d46;
-		--success-color-dark: #cecac3;
+		--success-color-dark: #DFDFDF;
 		--success-light-bg-dark: #28332f;
 
 		--warning-bg-light: #f2f5a4;
 		--warning-color-light: #4c4b12;
 		--warning-light-bg-light: #f9fcc7;
 		--warning-bg-dark: #4a4b08;
-		--warning-color-dark: #cac6bf;
+		--warning-color-dark: #E4E4E4;
 		--warning-light-bg-dark: #3b3e03;
 
 		--error-bg-light: #fab0a5;
 		--error-color-light: #511f18;
 		--error-light-bg-light: #ffe7e3;
 		--error-bg-dark: #661206;
-		--error-color-dark: #e3a79f;
+		--error-color-dark: #E6DBDB;
 		--error-light-bg-dark: #440a00;
 
 		--day-bg-light: #3a6070;
 		--day-color-light: white;
 		--day-bg-dark: #2e4d5a;
-		--day-color-dark: #9fccdf;
+		--day-color-dark: white;
 
-		--highlight-light: #DB1CBB;
-		--highlight-dark: #DB1CBB;
+		--highlight-bg-light: #F5DEF1;
+		--highlight-fg-light: #DB1CBB;
+		--highlight-bg-dark: #5A084C;
+		--highlight-fg-dark: #EE60D6;
 
 		--spacing: 5;
 
@@ -229,7 +231,8 @@ const { title } = Astro.props;
 		--day-bg: var(--day-bg-light);
 		--day-color: var(--day-color-light);
 
-		--highlight: var(--highlight-light);
+		--highlight-fg: var(--highlight-fg-light);
+		--highlight-bg: var(--highlight-bg-light);
 
 		&:has(#toggle-theme:checked) {
 			--bg: var(--bg-dark);
@@ -255,7 +258,8 @@ const { title } = Astro.props;
 			--day-bg: var(--day-bg-dark);
 			--day-color: var(--day-color-dark);
 
-			--highlight: var(--highlight-dark);
+			--highlight-fg: var(--highlight-fg-dark);
+			--highlight-bg: var(--highlight-bg-dark);
 		}
 	}
 	@media only screen and (prefers-color-scheme: dark) {
@@ -286,7 +290,8 @@ const { title } = Astro.props;
 			--day-bg: var(--day-bg-dark);
 			--day-color: var(--day-color-dark);
 
-			--highlight: var(--highlight-dark);
+			--highlight-fg: var(--highlight-fg-dark);
+			--highlight-bg: var(--highlight-bg-dark);
 
 			&:has(#toggle-theme:checked) {
 				--bg: var(--bg-light);
@@ -312,7 +317,8 @@ const { title } = Astro.props;
 				--day-bg: var(--day-bg-light);
 				--day-color: var(--day-color-light);
 
-				--highlight: var(--highlight-light);
+				--highlight-fg: var(--highlight-fg-light);
+				--highlight-bg: var(--highlight-bg-light);
 			}
 		}
 	}
