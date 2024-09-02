@@ -227,7 +227,7 @@ const details: { name: keyof typeof titleMap; items: string[] }[] = [
 	const today = new Date();
 	const todayDays = Math.floor(today.getTime() / milliSecondsInDay);
 	const daysSince = todayDays - startDays;
-	const currIdx = daysSince % 7;
+	const currIdx = daysSince % 14;
 	const item = document.getElementById(`day-${currIdx}`);
 	item?.classList.add('active');
 </script>
