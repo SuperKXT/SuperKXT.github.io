@@ -15,5 +15,8 @@
     "astro": "^4.6.0",
     "typescript": "^5.4.5"
   },
-  "packageManager": "pnpm@9.9.0"
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "packageManager": "pnpm@10.20.0"
 }
