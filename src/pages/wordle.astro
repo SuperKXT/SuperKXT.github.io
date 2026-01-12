@@ -1,0 +1,235 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Wordle Finder">
+  <main>
+    <header>
+      <h1>Wordle Word Finder</h1>
+    </header>
+
+    <div id="keyboard">
+      <div class="row">
+        <div draggable="true" id="Q">Q</div>
+        <div draggable="true" id="W">W</div>
+        <div draggable="true" id="E">E</div>
+        <div draggable="true" id="R">R</div>
+        <div draggable="true" id="T">T</div>
+        <div draggable="true" id="Y">Y</div>
+        <div draggable="true" id="U">U</div>
+        <div draggable="true" id="I">I</div>
+        <div draggable="true" id="O">O</div>
+        <div draggable="true" id="P">P</div>
+      </div>
+      <div class="row">
+        <div draggable="true" id="A">A</div>
+        <div draggable="true" id="S">S</div>
+        <div draggable="true" id="D">D</div>
+        <div draggable="true" id="F">F</div>
+        <div draggable="true" id="G">G</div>
+        <div draggable="true" id="H">H</div>
+        <div draggable="true" id="J">J</div>
+        <div draggable="true" id="K">K</div>
+        <div draggable="true" id="L">L</div>
+      </div>
+      <div class="row">
+        <div draggable="true" id="Z">Z</div>
+        <div draggable="true" id="X">X</div>
+        <div draggable="true" id="C">C</div>
+        <div draggable="true" id="V">V</div>
+        <div draggable="true" id="B">B</div>
+        <div draggable="true" id="N">N</div>
+        <div draggable="true" id="M">M</div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div id="pattern">
+      <div id="pattern-1">
+        <button>*</button>
+      </div>
+      <div id="pattern-2">
+        <button>*</button>
+      </div>
+      <div id="pattern-3">
+        <button>*</button>
+      </div>
+      <div id="pattern-4">
+        <button>*</button>
+      </div>
+      <div id="pattern-5">
+        <button>*</button>
+      </div>
+    </div>
+
+    <button id="find">Find</button>
+  </main>
+</Layout>
+
+<script>
+  const keys = document.querySelectorAll("#keyboard > .row > div");
+  let dragged: Element | null = null;
+  keys.forEach((key) => {
+    key.addEventListener("dragstart", () => {
+      dragged = key;
+    });
+  });
+
+  const getStatus = (ele: Element) => {
+    return ele.classList.contains("wrong")
+      ? "wrong"
+      : ele.classList.contains("right")
+        ? "right"
+        : "free";
+  };
+
+  const patterns = document.querySelectorAll("#pattern > div");
+  patterns.forEach((pattern) => {
+    pattern.addEventListener("dragover", (ev) => {
+      ev.preventDefault();
+    });
+    pattern.addEventListener("drop", (ev) => {
+      ev.preventDefault();
+      if (!dragged) return;
+      const status = getStatus(pattern);
+      if (status === "free") {
+        pattern.classList.add("right");
+        const first = pattern.querySelector("button");
+        if (first instanceof HTMLButtonElement) {
+          first.textContent = dragged.id;
+        }
+      } else {
+        if (status === "right") pattern.classList.remove("right");
+        pattern.classList.add("wrong");
+        const btn = document.createElement("button");
+        btn.textContent = dragged.id;
+        btn.id = dragged.id;
+        pattern.appendChild(btn);
+      }
+      if (status === "free") {
+        dragged.classList.add("right");
+      } else {
+        if (status === "right") dragged.classList.remove("right");
+        dragged.classList.add("wrong");
+      }
+    });
+  });
+
+  const button = document.getElementById("find");
+  if (button instanceof HTMLButtonElement) {
+    button.addEventListener("click", (_ev) => {
+      button.blur();
+    });
+  }
+</script>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: var(--spacing-3);
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  #keyboard {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: var(--spacing-2);
+
+    & > .row {
+      display: flex;
+      gap: var(--spacing-2);
+      flex-wrap: nowrap;
+    }
+  }
+
+  #pattern {
+    display: flex;
+    gap: var(--spacing-2);
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-1);
+
+      & > button {
+        all: unset;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .row > div {
+    cursor: grab;
+  }
+
+  .row > div,
+  #pattern > div > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 1.25em;
+    width: 50px;
+    aspect-ratio: 1;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--success-light-bg);
+    outline-style: solid;
+    outline-color: var(--fg-3);
+    outline-width: 0px;
+    outline-offset: 0px;
+
+    &:hover,
+    &:focus {
+      outline-width: 2px;
+      outline-offset: 5px;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+
+    &.right {
+      background-color: var(--success-bg);
+      color: var(--success-fg);
+    }
+
+    &.wrong {
+      background-color: var(--warning-bg);
+      color: var(--warning-fg);
+    }
+  }
+
+  #find {
+    all: unset;
+    box-sizing: border-box;
+    background-color: var(--error-bg);
+    text-align: center;
+    font-weight: 900;
+    color: var(--error-color);
+    border: 2px solid currentColor;
+    padding: var(--spacing-2);
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline-style: solid;
+    outline-color: currentColor;
+    outline-width: 0px;
+    outline-offset: 0px;
+
+    &:hover,
+    &:focus {
+      outline-width: 2px;
+      outline-offset: 5px;
+    }
+  }
+</style>

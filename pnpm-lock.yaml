@@ -14,12 +14,18 @@ importers:
       '@fontsource-variable/noto-nastaliq-urdu':
         specifier: ^5.2.8
         version: 5.2.8
+      '@fontsource/barlow':
+        specifier: ^5.2.8
+        version: 5.2.8
       astro:
         specifier: ^5.16.0
         version: 5.16.0(@types/node@24.10.1)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.1)
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+      zod:
+        specifier: ^4.3.5
+        version: 4.3.5
 
 packages:
 
@@ -265,6 +271,9 @@ packages:
 
   '@fontsource-variable/noto-nastaliq-urdu@5.2.8':
     resolution: {integrity: sha512-h+10ToT71H+mtMnM/SclxC46x9smZW8OH0joqVdDZ0BaVahqPQ1I/M8bKgWeU8X+WktICYrIsJ0oTxQvyg+A9Q==}
+
+  '@fontsource/barlow@5.2.8':
+    resolution: {integrity: sha512-iuFOnY4OI2cd1STrJ3NdJNzWjhcwv6JarmqfdoZzAmz9g0jTVjES86MNbuBxqVR3ydbTEjo4opEl24GXScRM7w==}
 
   '@img/colour@1.0.0':
     resolution: {integrity: sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw==}
@@ -1855,6 +1864,9 @@ packages:
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
+  zod@4.3.5:
+    resolution: {integrity: sha512-k7Nwx6vuWx1IJ9Bjuf4Zt1PEllcwe7cls3VNzm4CQ1/hgtFUK2bRNG3rvnpPUhFjmqJKAKtjV576KnUkHocg/g==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -2070,6 +2082,8 @@ snapshots:
     optional: true
 
   '@fontsource-variable/noto-nastaliq-urdu@5.2.8': {}
+
+  '@fontsource/barlow@5.2.8': {}
 
   '@img/colour@1.0.0':
     optional: true
@@ -3934,5 +3948,7 @@ snapshots:
       zod: 3.25.76
 
   zod@3.25.76: {}
+
+  zod@4.3.5: {}
 
   zwitch@2.0.4: {}

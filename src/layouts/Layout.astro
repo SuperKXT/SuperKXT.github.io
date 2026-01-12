@@ -1,6 +1,7 @@
 ---
+import "@fontsource/barlow";
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,318 +9,363 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/fav.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<input
-			type='checkbox'
-			name='toggle-theme'
-			id='toggle-theme'
-		>
-		<label for='toggle-theme'>
-			<div>
-				<span>🌖</span>
-				<span>🌞</span>
-			</div>
-		</label>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/fav.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <input type="checkbox" name="toggle-theme" id="toggle-theme" />
+    <label for="toggle-theme">
+      <div>
+        <span>🌖</span>
+        <span>🌞</span>
+      </div>
+    </label>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	:root {
-		--bg-light: white;
-		--fg-light: #3a6070;
-		--border-color-light: #1B4152;
-		--bg-dark: #181a1b;
-		--fg-dark: white;
-		--border-color-dark: #3785a7;
+  :root {
+    --bg-light: white;
+    --fg-light: #3a6070;
+    --border-color-light: #1b4152;
+    --bg-dark: #181a1b;
+    --fg-dark: white;
+    --border-color-dark: #3785a7;
 
-		--info-bg-light: #daedf4;
-		--info-color-light: #1B4152;
-		--info-light-bg-light: #daedf4;
-		--info-bg-dark: #12323e;
-		--info-color-dark: #E6E6E6;
-		--info-light-bg-dark: #3785a7;
+    --info-bg-light: #daedf4;
+    --info-color-light: #1b4152;
+    --info-light-bg-light: #daedf4;
+    --info-bg-dark: #12323e;
+    --info-color-dark: #e6e6e6;
+    --info-light-bg-dark: #3785a7;
 
-		--success-bg-light: #91ebb7;
-		--success-color-light: #0f4426;
-		--success-light-bg-light: #dae2de;
-		--success-bg-dark: #146d46;
-		--success-color-dark: #DFDFDF;
-		--success-light-bg-dark: #28332f;
+    --success-bg-light: #91ebb7;
+    --success-color-light: #0f4426;
+    --success-light-bg-light: #dae2de;
+    --success-bg-dark: #146d46;
+    --success-color-dark: #dfdfdf;
+    --success-light-bg-dark: #28332f;
 
-		--warning-bg-light: #f2f5a4;
-		--warning-color-light: #4c4b12;
-		--warning-light-bg-light: #f9fcc7;
-		--warning-bg-dark: #4a4b08;
-		--warning-color-dark: #E4E4E4;
-		--warning-light-bg-dark: #3b3e03;
+    --warning-bg-light: #f2f5a4;
+    --warning-color-light: #4c4b12;
+    --warning-light-bg-light: #f9fcc7;
+    --warning-bg-dark: #4a4b08;
+    --warning-color-dark: #e4e4e4;
+    --warning-light-bg-dark: #3b3e03;
 
-		--error-bg-light: #fab0a5;
-		--error-color-light: #511f18;
-		--error-light-bg-light: #ffe7e3;
-		--error-bg-dark: #661206;
-		--error-color-dark: #E6DBDB;
-		--error-light-bg-dark: #440a00;
+    --error-bg-light: #fab0a5;
+    --error-color-light: #511f18;
+    --error-light-bg-light: #ffe7e3;
+    --error-bg-dark: #661206;
+    --error-color-dark: #e6dbdb;
+    --error-light-bg-dark: #440a00;
 
-		--day-bg-light: #3a6070;
-		--day-color-light: white;
-		--day-bg-dark: #2e4d5a;
-		--day-color-dark: white;
+    --day-bg-light: #3a6070;
+    --day-color-light: white;
+    --day-bg-dark: #2e4d5a;
+    --day-color-dark: white;
 
-		--highlight-bg-light: #F5DEF1;
-		--highlight-fg-light: #DB1CBB;
-		--highlight-bg-dark: #5A084C;
-		--highlight-fg-dark: #EE60D6;
+    --highlight-bg-light: #f5def1;
+    --highlight-fg-light: #db1cbb;
+    --highlight-bg-dark: #5a084c;
+    --highlight-fg-dark: #ee60d6;
 
-		--spacing: 5;
+    --text-color-light: #037d9c;
+    --text-color-dark: #73d1e9;
 
-		--spacing-1: calc(var(--spacing) * 1px);
-		--spacing-2: calc(var(--spacing) * 2px);
-		--spacing-3: calc(var(--spacing) * 3px);
+    --spacing: 5;
 
-		font-size: 16px;
+    --spacing-1: calc(var(--spacing) * 1px);
+    --spacing-2: calc(var(--spacing) * 2px);
+    --spacing-3: calc(var(--spacing) * 3px);
 
-		@media only screen and (max-width: 550px) {
-			--spacing: 2.5;
+    font-size: 16px;
 
-			font-size: 12px;
-		}
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-		color: var(--fg);
-		background-color: var(--bg);
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+    @media only screen and (max-width: 550px) {
+      --spacing: 2.5;
 
-	/*
+      font-size: 12px;
+    }
+  }
+  html {
+    font-family: Barlow, system-ui, sans-serif;
+    background: #13151a;
+    background-size: 224px;
+    color: var(--fg);
+    background-color: var(--bg);
+  }
+  code {
+    font-family:
+      Menlo,
+      Monaco,
+      Lucida Console,
+      Liberation Mono,
+      DejaVu Sans Mono,
+      Bitstream Vera Sans Mono,
+      Courier New,
+      monospace;
+  }
+
+  /*
 	1. Use a more-intuitive box-sizing model.
 	*/
-	*, *::before, *::after {
-		box-sizing: border-box;
-	}
-	/*
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  /*
 	2. Remove default margin
 	*/
-	* {
-		margin: 0;
-	}
-	/*
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--fg);
+    transition:
+      color 0.2s linear,
+      background-color 0.2s linear,
+      border 0.2s linear,
+      transform 0.2s linear,
+      opacity 0.2s linear,
+      outline-width 0.2s linear,
+      outline-offset 0.2s linear !important;
+  }
+  /*
 	Typographic tweaks!
 	3. Add accessible line-height
 	4. Improve text rendering
 	*/
-	body {
-		line-height: 1.5;
-		-webkit-font-smoothing: antialiased;
-	}
-	/*
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    width: 100vw;
+  }
+  /*
 	5. Improve media defaults
 	*/
-	img, picture, video, canvas, svg {
-		display: block;
-		max-width: 100%;
-	}
-	/*
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
 	6. Remove built-in form typography styles
 	*/
-	input, button, textarea, select {
-		font: inherit;
-	}
-	/*
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  /*
 	7. Avoid text overflows
 	*/
-	p, h1, h2, h3, h4, h5, h6 {
-		overflow-wrap: break-word;
-	}
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
 
-	#toggle-theme {
-		display: none;
+  #toggle-theme {
+    display: none;
 
-		&:checked + label > div {
-			transform: translateY(calc(-2 * var(--toggle-size) * 1px));
-		}
-		& + label {
-			--toggle-size: calc(var(--spacing) * 10);
-			--toggle-size-px: calc(var(--toggle-size) * 1px);
-			cursor: pointer;
-			position: fixed;
-			top: 15px;
-			right: 15px;
-			font-size: 2em;
-			width: var(--toggle-size-px);
-			height: var(--toggle-size-px);
-			aspect-ratio: 1;
-			display: flex;
-			overflow: hidden;
-			transition: font-size 0.1s linear;
+    &:checked + label > div {
+      transform: translateY(calc(-2 * var(--toggle-size) * 1px));
+    }
+    & + label {
+      --toggle-size: calc(var(--spacing) * 10);
+      --toggle-size-px: calc(var(--toggle-size) * 1px);
+      cursor: pointer;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      font-size: 2em;
+      width: var(--toggle-size-px);
+      height: var(--toggle-size-px);
+      aspect-ratio: 1;
+      display: flex;
+      overflow: hidden;
+      transition: font-size 0.1s linear;
 
-			& > div {
-				width: 100%;
-				height: 300%;
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				align-items: center;
-				transition: transform 0.2s linear;
+      & > div {
+        width: 100%;
+        height: 300%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        transition: transform 0.2s linear;
 
-				& > span {
-					width: var(--toggle-size-px);
-					height: var(--toggle-size-px);
-					aspect-ratio: 1;
-					flex-shrink: 0;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-				}
-			}
+        & > span {
+          width: var(--toggle-size-px);
+          height: var(--toggle-size-px);
+          aspect-ratio: 1;
+          flex-shrink: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
 
-			&:hover {
-				font-size: 2.2em;
-			}
+      &:hover {
+        font-size: 2.2em;
+      }
 
-			@media only screen and (max-width: 550px) {
-				font-size: 1.75em;
+      @media only screen and (max-width: 550px) {
+        font-size: 1em;
 
-				&:hover {
-					font-size: 2em;
-				}
-			}
-		}
-	}
+        &:hover {
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
 
-	:root {
-		--bg: var(--bg-light);
-		--fg: var(--fg-light);
-		--border-color: var(--border-color-light);
+  :root {
+    --bg: var(--bg-light);
+    --fg: var(--fg-light);
+    --border-color: var(--border-color-light);
 
-		--info-bg: var(--info-bg-light);
-		--info-color: var(--info-color-light);
-		--info-light-bg: var(--info-light-bg-light);
+    --info-bg: var(--info-bg-light);
+    --info-color: var(--info-color-light);
+    --info-light-bg: var(--info-light-bg-light);
 
-		--success-bg: var(--success-bg-light);
-		--success-color: var(--success-color-light);
-		--success-light-bg: var(--success-light-bg-light);
+    --success-bg: var(--success-bg-light);
+    --success-color: var(--success-color-light);
+    --success-light-bg: var(--success-light-bg-light);
 
-		--warning-bg: var(--warning-bg-light);
-		--warning-color: var(--warning-color-light);
-		--warning-light-bg: var(--warning-light-bg-light);
+    --warning-bg: var(--warning-bg-light);
+    --warning-color: var(--warning-color-light);
+    --warning-light-bg: var(--warning-light-bg-light);
 
-		--error-bg: var(--error-bg-light);
-		--error-color: var(--error-color-light);
-		--error-light-bg: var(--error-light-bg-light);
+    --error-bg: var(--error-bg-light);
+    --error-color: var(--error-color-light);
+    --error-light-bg: var(--error-light-bg-light);
 
-		--day-bg: var(--day-bg-light);
-		--day-color: var(--day-color-light);
+    --day-bg: var(--day-bg-light);
+    --day-color: var(--day-color-light);
 
-		--highlight-fg: var(--highlight-fg-light);
-		--highlight-bg: var(--highlight-bg-light);
+    --highlight-fg: var(--highlight-fg-light);
+    --highlight-bg: var(--highlight-bg-light);
 
-		&:has(#toggle-theme:checked) {
-			--bg: var(--bg-dark);
-			--fg: var(--fg-dark);
-			--border-color: var(--border-color-dark);
+    --text-color: var(--text-color-light);
 
-			--info-bg: var(--info-bg-dark);
-			--info-color: var(--info-color-dark);
-			--info-light-bg: var(--info-light-bg-dark);
+    &:has(#toggle-theme:checked) {
+      --bg: var(--bg-dark);
+      --fg: var(--fg-dark);
+      --border-color: var(--border-color-dark);
 
-			--success-bg: var(--success-bg-dark);
-			--success-color: var(--success-color-dark);
-			--success-light-bg: var(--success-light-bg-dark);
+      --info-bg: var(--info-bg-dark);
+      --info-color: var(
+        --info-color-d --text-color: #73d1e9; --visited-color: #d26ddb;ark
+      );
+      --info-light-bg: var(--info-light-bg-dark);
 
-			--warning-bg: var(--warning-bg-dark);
-			--warning-color: var(--warning-color-dark);
-			--warning-light-bg: var(--warning-light-bg-dark);
+      --success-bg: var(--success-bg-dark);
+      --success-color: var(--success-color-dark);
+      --success-light-bg: var(--success-light-bg-dark);
 
-			--error-bg: var(--error-bg-dark);
-			--error-color: var(--error-color-dark);
-			--error-light-bg: var(--error-light-bg-dark);
+      --warning-bg: var(--warning-bg-dark);
+      --warning-color: var(--warning-color-dark);
+      --warning-light-bg: var(--warning-light-bg-dark);
 
-			--day-bg: var(--day-bg-dark);
-			--day-color: var(--day-color-dark);
+      --error-bg: var(--error-bg-dark);
+      --error-color: var(--error-color-dark);
+      --error-light-bg: var(--error-light-bg-dark);
 
-			--highlight-fg: var(--highlight-fg-dark);
-			--highlight-bg: var(--highlight-bg-dark);
-		}
-	}
-	@media only screen and (prefers-color-scheme: dark) {
-		#toggle-theme + label > div {
-			flex-direction: column-reverse;
-		}
-		:root {
-			--bg: var(--bg-dark);
-			--fg: var(--fg-dark);
-			--border-color: var(--border-color-dark);
+      --day-bg: var(--day-bg-dark);
+      --day-color: var(--day-color-dark);
 
-			--info-bg: var(--info-bg-dark);
-			--info-color: var(--info-color-dark);
-			--info-light-bg: var(--info-light-bg-dark);
+      --highlight-fg: var(--highlight-fg-dark);
+      --highlight-bg: var(--highlight-bg-dark);
 
-			--success-bg: var(--success-bg-dark);
-			--success-color: var(--success-color-dark);
-			--success-light-bg: var(--success-light-bg-dark);
+      --text-color: var(--text-color-dark);
 
-			--warning-bg: var(--warning-bg-dark);
-			--warning-color: var(--warning-color-dark);
-			--warning-light-bg: var(--warning-light-bg-dark);
+      --green-1: #2abf63;
+      --green-2: #1f9c4f;
+      --green-3: #17733a;
+      --red-1: #fa6475;
+      --red-2: #db4f5f;
+      --red-3: #a83240;
+      --yellow-1: #edcd58;
+      --yellow-2: #cfb144;
+      --yellow-3: #99822f;
+    }
+  }
+  @media only screen and (prefers-color-scheme: dark) {
+    #toggle-theme + label > div {
+      flex-direction: column-reverse;
+    }
+    :root {
+      --bg: var(--bg-dark);
+      --fg: var(--fg-dark);
+      --border-color: var(--border-color-dark);
 
-			--error-bg: var(--error-bg-dark);
-			--error-color: var(--error-color-dark);
-			--error-light-bg: var(--error-light-bg-dark);
+      --info-bg: var(--info-bg-dark);
+      --info-color: var(--info-color-dark);
+      --info-light-bg: var(--info-light-bg-dark);
 
-			--day-bg: var(--day-bg-dark);
-			--day-color: var(--day-color-dark);
+      --success-bg: var(--success-bg-dark);
+      --success-color: var(--success-color-dark);
+      --success-light-bg: var(--success-light-bg-dark);
 
-			--highlight-fg: var(--highlight-fg-dark);
-			--highlight-bg: var(--highlight-bg-dark);
+      --warning-bg: var(--warning-bg-dark);
+      --warning-color: var(--warning-color-dark);
+      --warning-light-bg: var(--warning-light-bg-dark);
 
-			&:has(#toggle-theme:checked) {
-				--bg: var(--bg-light);
-				--fg: var(--fg-light);
-				--border-color: var(--border-color-light);
+      --error-bg: var(--error-bg-dark);
+      --error-color: var(--error-color-dark);
+      --error-light-bg: var(--error-light-bg-dark);
 
-				--info-bg: var(--info-bg-light);
-				--info-color: var(--info-color-light);
-				--info-light-bg: var(--info-light-bg-light);
+      --day-bg: var(--day-bg-dark);
+      --day-color: var(--day-color-dark);
 
-				--success-bg: var(--success-bg-light);
-				--success-color: var(--success-color-light);
-				--success-light-bg: var(--success-light-bg-light);
+      --highlight-fg: var(--highlight-fg-dark);
+      --highlight-bg: var(--highlight-bg-dark);
 
-				--warning-bg: var(--warning-bg-light);
-				--warning-color: var(--warning-color-light);
-				--warning-light-bg: var(--warning-light-bg-light);
+      --text-color: var(--text-color-dark);
 
-				--error-bg: var(--error-bg-light);
-				--error-color: var(--error-color-light);
-				--error-light-bg: var(--error-light-bg-light);
+      &:has(#toggle-theme:checked) {
+        --bg: var(--bg-light);
+        --fg: var(--fg-light);
+        --border-color: var(--border-color-light);
 
-				--day-bg: var(--day-bg-light);
-				--day-color: var(--day-color-light);
+        --info-bg: var(--info-bg-light);
+        --info-color: var(--info-color-light);
+        --info-light-bg: var(--info-light-bg-light);
 
-				--highlight-fg: var(--highlight-fg-light);
-				--highlight-bg: var(--highlight-bg-light);
-			}
-		}
-	}
+        --success-bg: var(--success-bg-light);
+        --success-color: var(--success-color-light);
+        --success-light-bg: var(--success-light-bg-light);
+
+        --warning-bg: var(--warning-bg-light);
+        --warning-color: var(--warning-color-light);
+        --warning-light-bg: var(--warning-light-bg-light);
+
+        --error-bg: var(--error-bg-light);
+        --error-color: var(--error-color-light);
+        --error-light-bg: var(--error-light-bg-light);
+
+        --day-bg: var(--day-bg-light);
+        --day-color: var(--day-color-light);
+
+        --highlight-fg: var(--highlight-fg-light);
+        --highlight-bg: var(--highlight-bg-light);
+
+        --text-color: var(--text-color-light);
+      }
+    }
+  }
 </style>

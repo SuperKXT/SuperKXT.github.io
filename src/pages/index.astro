@@ -26,13 +26,14 @@ import Layout from "../layouts/Layout.astro";
     font-size: 20px;
     line-height: 1.6;
   }
+
   ul {
     display: flex;
     gap: 16px;
     list-style: none;
     padding: 0;
     font-size: 0.9em;
-    font-weight: 300;
+    font-weight: 900;
     animation: showLinks 4s ease-in-out;
   }
   @keyframes showLinks {
@@ -52,10 +53,11 @@ import Layout from "../layouts/Layout.astro";
   a {
     text-decoration-thickness: 3px;
     text-decoration-skip-ink: auto;
-    color: #037d9c;
+    color: var(--text-color);
     text-decoration-thickness: 3px;
     text-decoration-inset: 4px;
     text-underline-offset: 3px;
+    transition: color 0.2s linear;
   }
   a:hover,
   a:active,
@@ -63,7 +65,7 @@ import Layout from "../layouts/Layout.astro";
     text-underline-offset: 5px;
   }
   a:visited {
-    color: #8b3e92;
+    color: var(--highlight-fg);
   }
   a:focus-visible {
     outline-offset: 2px;

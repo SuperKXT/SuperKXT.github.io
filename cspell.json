@@ -1,0 +1,40 @@
+{
+	"words": [
+		"addx",
+		"antfu",
+		"Bitonic",
+		"cassidoo",
+		"Catan",
+		"datastream",
+		"datetime",
+		"fastify",
+		"lexo",
+		"luhn",
+		"Nums",
+		"parens",
+		"quordle",
+		"raumdeuter",
+		"Saad",
+		"Tetris",
+		"typebox",
+		"typecheck",
+		"wordle"
+	],
+	"ignorePaths": [
+		"package-lock.json",
+		"pnpm-lock.yaml",
+		"node_modules",
+		"vscode-extension",
+		".git/objects",
+		".vscode",
+		".vscode-insiders",
+		"./advent-of-code/**/**/input.txt",
+		"coverage",
+		"trace",
+		"./type-challenges",
+		"./scripts/md-links-to-csv/*.{md,csv}",
+		"sample.txt",
+		"input.txt",
+		"tsconfig.vitest-temp.json"
+	]
+}
