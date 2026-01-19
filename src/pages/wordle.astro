@@ -10,57 +10,47 @@ import Layout from "../layouts/Layout.astro";
 
     <div id="keyboard">
       <div class="row">
-        <div draggable="true" id="Q">Q</div>
-        <div draggable="true" id="W">W</div>
-        <div draggable="true" id="E">E</div>
-        <div draggable="true" id="R">R</div>
-        <div draggable="true" id="T">T</div>
-        <div draggable="true" id="Y">Y</div>
-        <div draggable="true" id="U">U</div>
-        <div draggable="true" id="I">I</div>
-        <div draggable="true" id="O">O</div>
-        <div draggable="true" id="P">P</div>
+        <div id="Q">Q</div>
+        <div id="W">W</div>
+        <div id="E">E</div>
+        <div id="R">R</div>
+        <div id="T">T</div>
+        <div id="Y">Y</div>
+        <div id="U">U</div>
+        <div id="I">I</div>
+        <div id="O">O</div>
+        <div id="P">P</div>
       </div>
       <div class="row">
-        <div draggable="true" id="A">A</div>
-        <div draggable="true" id="S">S</div>
-        <div draggable="true" id="D">D</div>
-        <div draggable="true" id="F">F</div>
-        <div draggable="true" id="G">G</div>
-        <div draggable="true" id="H">H</div>
-        <div draggable="true" id="J">J</div>
-        <div draggable="true" id="K">K</div>
-        <div draggable="true" id="L">L</div>
+        <div id="A">A</div>
+        <div id="S">S</div>
+        <div id="D">D</div>
+        <div id="F">F</div>
+        <div id="G">G</div>
+        <div id="H">H</div>
+        <div id="J">J</div>
+        <div id="K">K</div>
+        <div id="L">L</div>
       </div>
       <div class="row">
-        <div draggable="true" id="Z">Z</div>
-        <div draggable="true" id="X">X</div>
-        <div draggable="true" id="C">C</div>
-        <div draggable="true" id="V">V</div>
-        <div draggable="true" id="B">B</div>
-        <div draggable="true" id="N">N</div>
-        <div draggable="true" id="M">M</div>
+        <div id="Z">Z</div>
+        <div id="X">X</div>
+        <div id="C">C</div>
+        <div id="V">V</div>
+        <div id="B">B</div>
+        <div id="N">N</div>
+        <div id="M">M</div>
       </div>
     </div>
 
     <hr />
 
     <div id="pattern">
-      <div id="pattern-1">
-        <button>*</button>
-      </div>
-      <div id="pattern-2">
-        <button>*</button>
-      </div>
-      <div id="pattern-3">
-        <button>*</button>
-      </div>
-      <div id="pattern-4">
-        <button>*</button>
-      </div>
-      <div id="pattern-5">
-        <button>*</button>
-      </div>
+      <input id="char-1" />
+      <input id="char-2" />
+      <input id="char-3" />
+      <input id="char-4" />
+      <input id="char-5" />
     </div>
 
     <button id="find">Find</button>
@@ -68,50 +58,62 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  const keys = document.querySelectorAll("#keyboard > .row > div");
-  let dragged: Element | null = null;
+  const keys = document.querySelectorAll<HTMLDivElement>(
+    "#keyboard > .row > div",
+  );
+  const inputs =
+    document.querySelectorAll<HTMLInputElement>("#pattern > input");
+
+  const inputMap = new Map<string, HTMLInputElement>();
+  const keyMap = new Map<string, HTMLDivElement>();
+
   keys.forEach((key) => {
-    key.addEventListener("dragstart", () => {
-      dragged = key;
-    });
+    keyMap.set(key.id, key);
   });
 
-  const getStatus = (ele: Element) => {
-    return ele.classList.contains("wrong")
-      ? "wrong"
-      : ele.classList.contains("right")
-        ? "right"
-        : "free";
+  const updateKeyStatus = (key: string): void => {
+    const curr = keyMap.get(key);
+    if (!curr) return;
+    let status = "";
+    for (const input of inputMap.values()) {
+      if (input.value !== key) continue;
+      status = input.className;
+      if (status === "right") break;
+    }
+    curr.className = status;
   };
 
-  const patterns = document.querySelectorAll("#pattern > div");
-  patterns.forEach((pattern) => {
-    pattern.addEventListener("dragover", (ev) => {
-      ev.preventDefault();
-    });
-    pattern.addEventListener("drop", (ev) => {
-      ev.preventDefault();
-      if (!dragged) return;
-      const status = getStatus(pattern);
-      if (status === "free") {
-        pattern.classList.add("right");
-        const first = pattern.querySelector("button");
-        if (first instanceof HTMLButtonElement) {
-          first.textContent = dragged.id;
+  inputs.forEach((input) => {
+    inputMap.set(input.id, input);
+    input.addEventListener("keydown", (e) => {
+      const key = e.key.toUpperCase();
+      const prevKey = input.value;
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        const prev = input.previousElementSibling;
+        if (prev instanceof HTMLInputElement) prev.focus();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        const next = input.nextElementSibling;
+        if (next instanceof HTMLInputElement) next.focus();
+      } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+        e.preventDefault();
+        if (keyMap.has(prevKey)) {
+          input.className = input.className === "wrong" ? "right" : "wrong";
+          updateKeyStatus(prevKey);
         }
-      } else {
-        if (status === "right") pattern.classList.remove("right");
-        pattern.classList.add("wrong");
-        const btn = document.createElement("button");
-        btn.textContent = dragged.id;
-        btn.id = dragged.id;
-        pattern.appendChild(btn);
-      }
-      if (status === "free") {
-        dragged.classList.add("right");
-      } else {
-        if (status === "right") dragged.classList.remove("right");
-        dragged.classList.add("wrong");
+      } else if (e.key === "Backspace") {
+        e.preventDefault();
+        input.value = "";
+        input.className = "";
+        updateKeyStatus(prevKey);
+      } else if (keyMap.has(key)) {
+        e.preventDefault();
+        if (key === prevKey) return;
+        input.value = key;
+        input.className = "right";
+        updateKeyStatus(key);
+        updateKeyStatus(prevKey);
       }
     });
   });
@@ -155,24 +157,21 @@ import Layout from "../layouts/Layout.astro";
     align-items: center;
     flex: 1;
 
-    & > div {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-1);
+    & > :global(input) {
+      &:global(:hover),
+      &:global(:focus) {
+        outline-width: 2px;
+        outline-offset: 5px;
+      }
 
-      & > button {
-        all: unset;
-        cursor: pointer;
+      &:active {
+        transform: scale(0.9);
       }
     }
   }
 
-  .row > div {
-    cursor: grab;
-  }
-
-  .row > div,
-  #pattern > div > button {
+  .row > :global(div),
+  #pattern > :global(input) {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,21 +181,11 @@ import Layout from "../layouts/Layout.astro";
     aspect-ratio: 1;
     border: 2px solid var(--border-color);
     border-radius: 5px;
-    background-color: var(--success-light-bg);
     outline-style: solid;
     outline-color: var(--fg-3);
     outline-width: 0px;
     outline-offset: 0px;
-
-    &:hover,
-    &:focus {
-      outline-width: 2px;
-      outline-offset: 5px;
-    }
-
-    &:active {
-      transform: scale(0.9);
-    }
+    text-align: center;
 
     &.right {
       background-color: var(--success-bg);
@@ -207,6 +196,10 @@ import Layout from "../layouts/Layout.astro";
       background-color: var(--warning-bg);
       color: var(--warning-fg);
     }
+  }
+
+  .row > :global(div) {
+    background-color: var(--success-light-bg);
   }
 
   #find {
@@ -226,8 +219,8 @@ import Layout from "../layouts/Layout.astro";
     outline-width: 0px;
     outline-offset: 0px;
 
-    &:hover,
-    &:focus {
+    &:global(:hover),
+    &:global(:focus) {
       outline-width: 2px;
       outline-offset: 5px;
     }
