@@ -8,6 +8,16 @@ import Layout from "../layouts/Layout.astro";
       <h1>Wordle Word Finder</h1>
     </header>
 
+    <div id="pattern">
+      <input id="char-1" />
+      <input id="char-2" />
+      <input id="char-3" />
+      <input id="char-4" />
+      <input id="char-5" />
+    </div>
+
+    <hr />
+
     <div id="keyboard">
       <div class="row">
         <div id="Q">Q</div>
@@ -41,16 +51,6 @@ import Layout from "../layouts/Layout.astro";
         <div id="N">N</div>
         <div id="M">M</div>
       </div>
-    </div>
-
-    <hr />
-
-    <div id="pattern">
-      <input id="char-1" />
-      <input id="char-2" />
-      <input id="char-3" />
-      <input id="char-4" />
-      <input id="char-5" />
     </div>
 
     <button id="find">Find</button>
