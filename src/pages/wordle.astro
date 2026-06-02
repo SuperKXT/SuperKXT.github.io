@@ -8,56 +8,67 @@ import Layout from "../layouts/Layout.astro";
       <h1>Wordle Word Finder</h1>
     </header>
 
-    <div id="pattern">
-      <input id="char-1" />
-      <input id="char-2" />
-      <input id="char-3" />
-      <input id="char-4" />
-      <input id="char-5" />
-    </div>
+    <div id="results"></div>
 
-    <hr />
+    <form id="wordle-form">
+      <div id="pattern">
+        <input id="char-1" />
+        <input id="char-2" />
+        <input id="char-3" />
+        <input id="char-4" />
+        <input id="char-5" />
+      </div>
 
-    <div id="keyboard">
-      <div class="row">
-        <div id="Q">Q</div>
-        <div id="W">W</div>
-        <div id="E">E</div>
-        <div id="R">R</div>
-        <div id="T">T</div>
-        <div id="Y">Y</div>
-        <div id="U">U</div>
-        <div id="I">I</div>
-        <div id="O">O</div>
-        <div id="P">P</div>
+      <div id="unavailable-container">
+        <label for="unavailable">Unavailable</label>
+        <input id="unavailable" name="unavailable" />
       </div>
-      <div class="row">
-        <div id="A">A</div>
-        <div id="S">S</div>
-        <div id="D">D</div>
-        <div id="F">F</div>
-        <div id="G">G</div>
-        <div id="H">H</div>
-        <div id="J">J</div>
-        <div id="K">K</div>
-        <div id="L">L</div>
-      </div>
-      <div class="row">
-        <div id="Z">Z</div>
-        <div id="X">X</div>
-        <div id="C">C</div>
-        <div id="V">V</div>
-        <div id="B">B</div>
-        <div id="N">N</div>
-        <div id="M">M</div>
-      </div>
-    </div>
 
-    <button id="find">Find</button>
+      <hr />
+
+      <div id="keyboard">
+        <div class="row">
+          <div id="Q">Q</div>
+          <div id="W">W</div>
+          <div id="E">E</div>
+          <div id="R">R</div>
+          <div id="T">T</div>
+          <div id="Y">Y</div>
+          <div id="U">U</div>
+          <div id="I">I</div>
+          <div id="O">O</div>
+          <div id="P">P</div>
+        </div>
+        <div class="row">
+          <div id="A">A</div>
+          <div id="S">S</div>
+          <div id="D">D</div>
+          <div id="F">F</div>
+          <div id="G">G</div>
+          <div id="H">H</div>
+          <div id="J">J</div>
+          <div id="K">K</div>
+          <div id="L">L</div>
+        </div>
+        <div class="row">
+          <div id="Z">Z</div>
+          <div id="X">X</div>
+          <div id="C">C</div>
+          <div id="V">V</div>
+          <div id="B">B</div>
+          <div id="N">N</div>
+          <div id="M">M</div>
+        </div>
+      </div>
+
+      <button id="find">Find</button>
+    </form>
   </main>
 </Layout>
 
 <script>
+  import { findWordle } from "../wordle/wordle.ts";
+
   const keys = document.querySelectorAll<HTMLDivElement>(
     "#keyboard > .row > div",
   );
@@ -71,6 +82,8 @@ import Layout from "../layouts/Layout.astro";
     keyMap.set(key.id, key);
   });
 
+  const unavailable = document.querySelector<HTMLInputElement>("#unavailable");
+
   const updateKeyStatus = (key: string): void => {
     const curr = keyMap.get(key);
     if (!curr) return;
@@ -80,8 +93,36 @@ import Layout from "../layouts/Layout.astro";
       status = input.className;
       if (status === "right") break;
     }
+    if (status === "" && unavailable?.value.toUpperCase().includes(key)) {
+      status = "unavailable";
+    }
     curr.className = status;
   };
+
+  const removeFromUnavailable = (letter: string): void => {
+    if (!unavailable) return;
+    const updated = unavailable.value.toLowerCase().replace(letter.toLowerCase(), "");
+    if (updated === unavailable.value.toLowerCase()) return;
+    unavailable.value = updated;
+    unavailable.className = updated.length > 0 ? "unavailable" : "";
+  };
+
+  keys.forEach((key) => {
+    key.addEventListener("click", () => {
+      if (!unavailable) return;
+      if (key.className === "right" || key.className === "wrong") return;
+      const letter = key.id.toLowerCase();
+      const current = unavailable.value.toLowerCase();
+      if (current.includes(letter)) {
+        unavailable.value = current.replace(letter, "");
+      } else {
+        if (current.length >= 26) return;
+        unavailable.value = current + letter;
+      }
+      unavailable.className = unavailable.value.length > 0 ? "unavailable" : "";
+      keyMap.forEach((_, k) => updateKeyStatus(k));
+    });
+  });
 
   inputs.forEach((input) => {
     inputMap.set(input.id, input);
@@ -100,6 +141,7 @@ import Layout from "../layouts/Layout.astro";
         e.preventDefault();
         if (keyMap.has(prevKey)) {
           input.className = input.className === "wrong" ? "right" : "wrong";
+          removeFromUnavailable(prevKey);
           updateKeyStatus(prevKey);
         }
       } else if (e.key === "Backspace") {
@@ -112,16 +154,61 @@ import Layout from "../layouts/Layout.astro";
         if (key === prevKey) return;
         input.value = key;
         input.className = "right";
+        removeFromUnavailable(key);
         updateKeyStatus(key);
         updateKeyStatus(prevKey);
       }
     });
   });
 
-  const button = document.getElementById("find");
-  if (button instanceof HTMLButtonElement) {
-    button.addEventListener("click", (_ev) => {
-      button.blur();
+  unavailable?.addEventListener("input", (_ev) => {
+    let value = unavailable.value.toUpperCase();
+    if (value.length > 26) return;
+    value = [...value]
+      .filter((letter) => {
+        const cls = keyMap.get(letter)?.className;
+        return cls !== "right" && cls !== "wrong";
+      })
+      .join("");
+    unavailable.value = value.toLowerCase();
+    unavailable.className = value.length > 0 ? "unavailable" : "";
+    keyMap.forEach((_, key) => updateKeyStatus(key));
+  });
+
+  const results = document.getElementById("results");
+
+  const form = document.getElementById("wordle-form");
+  if (form instanceof HTMLFormElement) {
+    form.addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      (document.activeElement as HTMLElement | null)?.blur();
+
+      let pattern = "";
+      const known: string[] = [];
+      for (const input of inputMap.values()) {
+        if (input.className === "right" && input.value) {
+          pattern += input.value.toLowerCase();
+        } else if (input.className === "wrong" && input.value) {
+          pattern += `(${input.value.toLowerCase()})`;
+          known.push(input.value.toLowerCase());
+        } else {
+          pattern += "*";
+        }
+      }
+
+      const words = findWordle({
+        pattern,
+        known: known.join(""),
+        unavailable: unavailable?.value.toLowerCase() ?? "",
+      });
+
+      if (!results) return;
+      results.innerHTML = "";
+      for (const word of words) {
+        const el = document.createElement("div");
+        el.textContent = word.toUpperCase();
+        results.appendChild(el);
+      }
     });
   }
 </script>
@@ -134,6 +221,10 @@ import Layout from "../layouts/Layout.astro";
     gap: var(--spacing-3);
     width: 100%;
     min-height: 100vh;
+  }
+
+  #wordle-form {
+    display: contents;
   }
 
   #keyboard {
@@ -156,7 +247,10 @@ import Layout from "../layouts/Layout.astro";
     justify-content: center;
     align-items: center;
     flex: 1;
+  }
 
+  #pattern,
+  #unavailable-container {
     & > :global(input) {
       &:global(:hover),
       &:global(:focus) {
@@ -170,14 +264,34 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
+  #unavailable-container {
+    width: 350px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    justify-content: center;
+    align-items: center;
+    margin-inline: auto;
+
+    & > label {
+      font-weight: 900;
+    }
+
+    & > #unavailable {
+      aspect-ratio: unset;
+    }
+  }
+
   .row > :global(div),
-  #pattern > :global(input) {
+  #pattern > :global(input),
+  #unavailable {
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 900;
     font-size: 1.25em;
-    width: 50px;
+    height: 50px;
     aspect-ratio: 1;
     border: 2px solid var(--border-color);
     border-radius: 5px;
@@ -186,6 +300,8 @@ import Layout from "../layouts/Layout.astro";
     outline-width: 0px;
     outline-offset: 0px;
     text-align: center;
+    background-color: var(--bg);
+    color: var(--fg);
 
     &.right {
       background-color: var(--success-bg);
@@ -196,10 +312,46 @@ import Layout from "../layouts/Layout.astro";
       background-color: var(--warning-bg);
       color: var(--warning-fg);
     }
+
+    &.unavailable {
+      background-color: var(--error-bg);
+      color: var(--error-fg);
+    }
+
+    &:global(:hover),
+    &:global(:focus) {
+      outline-width: 2px;
+      outline-offset: 5px;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
   }
 
   .row > :global(div) {
     background-color: var(--success-light-bg);
+    cursor: pointer;
+  }
+
+  #results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+    justify-content: center;
+    max-height: 150px;
+    overflow: auto;
+
+    & > :global(div) {
+      font-weight: 900;
+      font-size: 1em;
+      padding: var(--spacing-1) var(--spacing-2);
+      border: 2px solid var(--border-color);
+      border-radius: 5px;
+      background-color: var(--success-bg);
+      color: var(--success-fg);
+      letter-spacing: 0.1em;
+    }
   }
 
   #find {
