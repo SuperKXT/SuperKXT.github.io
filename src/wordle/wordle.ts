@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "astro/zod";
 
 import { WORDLE_WORDS } from "./word-list.js";
 
@@ -37,16 +37,16 @@ export const findWordle = (parameters: TArguments): string[] => {
       .replace(
         REGEX.exclude,
         (_, p1: string) =>
-          `[${availableCharacters.replace(new RegExp(`[${p1}]`, "giu"), "")}]`
+          `[${availableCharacters.replace(new RegExp(`[${p1}]`, "giu"), "")}]`,
       ),
-    "iu"
+    "iu",
   );
 
   const matches = WORDLE_WORDS.filter(
     (word) =>
       (!distinct || !REGEX.duplicate.test(word)) &&
       known.split("").every((character) => word.includes(character)) &&
-      regex.test(word)
+      regex.test(word),
   );
 
   return matches;
