@@ -1,15 +1,22 @@
 ---
-import logo from "../../public/logo.svg";
+import logo from "../../public/logo.svg?raw";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Saad Khan">
   <main>
-    <img src={logo.src} />
+    <Fragment set:html={logo} />
     <ul>
       <a href="https://github.com/SuperKXT">Github</a>
       <li><a href="https://linkedin.com/in/SuperKXT">LinkedIn</a></li>
       <li><a href="https://bsky.app/profile/superkxt.com">BlueSky</a></li>
+    </ul>
+    <ul>
+      <li><a href="/v1">Site v1</a></li>
+      <li><a href="/v2">Site v2</a></li>
+      <li><a href="/menu">Menu</a></li>
+      <a href="/wordle">Wordle Finder</a>
+      <li><a href="/canal-control">Canal Control</a></li>
     </ul>
   </main>
 </Layout>
@@ -73,7 +80,7 @@ import Layout from "../layouts/Layout.astro";
     outline-style: solid;
     outline-color: inherit;
   }
-  img {
+  :global(#svg-logo-container) {
     display: block;
     width: 250px;
   }
