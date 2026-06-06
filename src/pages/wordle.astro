@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
 ---
 
 <Layout title="Wordle Finder">
@@ -12,11 +13,19 @@ import Layout from "../layouts/Layout.astro";
 
     <form id="wordle-form">
       <div id="pattern">
-        <input id="char-1" />
-        <input id="char-2" />
-        <input id="char-3" />
-        <input id="char-4" />
-        <input id="char-5" />
+        {
+          pattern.map((p) => (
+            <div class="char-wrapper">
+              <button type="button" class="arrow up">
+                ▲
+              </button>
+              <input id={`char-${p}`} />
+              <button type="button" class="arrow down">
+                ▼
+              </button>
+            </div>
+          ))
+        }
       </div>
 
       <div id="unavailable-container">
@@ -72,8 +81,7 @@ import Layout from "../layouts/Layout.astro";
   const keys = document.querySelectorAll<HTMLDivElement>(
     "#keyboard > .row > div",
   );
-  const inputs =
-    document.querySelectorAll<HTMLInputElement>("#pattern > input");
+  const inputs = document.querySelectorAll<HTMLInputElement>("#pattern input");
 
   const inputMap = new Map<string, HTMLInputElement>();
   const keyMap = new Map<string, HTMLDivElement>();
@@ -101,10 +109,8 @@ import Layout from "../layouts/Layout.astro";
 
   const removeFromUnavailable = (letter: string): void => {
     if (!unavailable) return;
-    const updated = unavailable.value
-      .toLowerCase()
-      .replace(letter.toLowerCase(), "");
-    if (updated === unavailable.value.toLowerCase()) return;
+    const updated = unavailable.value.replace(letter.toUpperCase(), "");
+    if (updated === unavailable.value) return;
     unavailable.value = updated;
     unavailable.className = updated.length > 0 ? "unavailable" : "";
   };
@@ -113,8 +119,8 @@ import Layout from "../layouts/Layout.astro";
     key.addEventListener("click", () => {
       if (!unavailable) return;
       if (key.className === "right" || key.className === "wrong") return;
-      const letter = key.id.toLowerCase();
-      const current = unavailable.value.toLowerCase();
+      const letter = key.id;
+      const current = unavailable.value;
       if (current.includes(letter)) {
         unavailable.value = current.replace(letter, "");
       } else {
@@ -133,11 +139,15 @@ import Layout from "../layouts/Layout.astro";
       const prevKey = input.value;
       if (e.key === "ArrowLeft") {
         e.preventDefault();
-        const prev = input.previousElementSibling;
+        const prev = input
+          .closest(".char-wrapper")
+          ?.previousElementSibling?.querySelector("input");
         if (prev instanceof HTMLInputElement) prev.focus();
       } else if (e.key === "ArrowRight") {
         e.preventDefault();
-        const next = input.nextElementSibling;
+        const next = input
+          .closest(".char-wrapper")
+          ?.nextElementSibling?.querySelector("input");
         if (next instanceof HTMLInputElement) next.focus();
       } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
         e.preventDefault();
@@ -163,8 +173,24 @@ import Layout from "../layouts/Layout.astro";
     });
   });
 
+  document
+    .querySelectorAll<HTMLButtonElement>("#pattern .arrow")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const input = btn
+          .closest(".char-wrapper")
+          ?.querySelector<HTMLInputElement>("input");
+        if (!input) return;
+        const val = input.value;
+        if (!keyMap.has(val)) return;
+        input.className = input.className === "wrong" ? "right" : "wrong";
+        removeFromUnavailable(val);
+        updateKeyStatus(val);
+      });
+    });
+
   unavailable?.addEventListener("input", (_ev) => {
-    let value = unavailable.value.toUpperCase();
+    let value = unavailable.value.toUpperCase().replace(/[^A-Z]/g, "");
     if (value.length > 26) return;
     value = [...value]
       .filter((letter) => {
@@ -172,7 +198,7 @@ import Layout from "../layouts/Layout.astro";
         return cls !== "right" && cls !== "wrong";
       })
       .join("");
-    unavailable.value = value.toLowerCase();
+    unavailable.value = value;
     unavailable.className = value.length > 0 ? "unavailable" : "";
     keyMap.forEach((_, key) => updateKeyStatus(key));
   });
@@ -183,7 +209,8 @@ import Layout from "../layouts/Layout.astro";
   if (form instanceof HTMLFormElement) {
     form.addEventListener("submit", (ev) => {
       ev.preventDefault();
-      (document.activeElement as HTMLElement | null)?.blur();
+      const active = document.activeElement as HTMLElement | null;
+      active?.blur();
 
       let pattern = "";
       const known: string[] = [];
@@ -209,8 +236,26 @@ import Layout from "../layouts/Layout.astro";
       for (const word of words) {
         const el = document.createElement("div");
         el.textContent = word.toUpperCase();
+        el.addEventListener("click", () => {
+          const text = word.toUpperCase();
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement("textarea");
+            ta.value = text;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            document["execCommand"]("copy");
+            document.body.removeChild(ta);
+          }
+          el.classList.add("copied");
+          setTimeout(() => el.classList.remove("copied"), 800);
+        });
         results.appendChild(el);
       }
+      active?.focus();
     });
   }
 </script>
@@ -222,7 +267,7 @@ import Layout from "../layouts/Layout.astro";
     padding: 10px;
     gap: var(--spacing-3);
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
   }
 
   #wordle-form {
@@ -244,6 +289,7 @@ import Layout from "../layouts/Layout.astro";
       @media (max-width: 475px) {
         & > :global(div) {
           height: 25px;
+          width: 25px;
         }
       }
     }
@@ -254,7 +300,6 @@ import Layout from "../layouts/Layout.astro";
     gap: var(--spacing-2);
     justify-content: center;
     align-items: center;
-    flex: 1;
   }
 
   #pattern,
@@ -269,6 +314,34 @@ import Layout from "../layouts/Layout.astro";
       &:active {
         transform: scale(0.9);
       }
+    }
+  }
+
+  #pattern > :global(.char-wrapper) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-1);
+  }
+
+  #pattern :global(.arrow) {
+    all: unset;
+    cursor: pointer;
+    font-size: 0.8em;
+    color: var(--fg);
+    line-height: 1;
+    padding: 1px 4px;
+    border-radius: 3px;
+    padding: 5px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+      background-color: var(--highlight-bg);
+      color: var(--highlight-fg);
     }
   }
 
@@ -288,12 +361,12 @@ import Layout from "../layouts/Layout.astro";
     }
 
     & > #unavailable {
-      aspect-ratio: unset;
+      width: 100%;
     }
   }
 
   .row > :global(div),
-  #pattern > :global(input),
+  #pattern :global(input),
   #unavailable {
     display: flex;
     justify-content: center;
@@ -301,7 +374,7 @@ import Layout from "../layouts/Layout.astro";
     font-weight: 900;
     font-size: 1.25em;
     height: 50px;
-    aspect-ratio: 1;
+    width: 50px;
     border: 2px solid var(--border-color);
     border-radius: 5px;
     outline-style: solid;
@@ -343,12 +416,22 @@ import Layout from "../layouts/Layout.astro";
     cursor: pointer;
   }
 
+  @keyframes tooltip-up {
+    0% {
+      translate: -50% 0;
+    }
+    100% {
+      translate: -50% -5px;
+    }
+  }
+
   #results {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-2);
     justify-content: center;
-    max-height: 150px;
+    align-items: center;
+    flex: 1;
     overflow: auto;
 
     & > :global(div) {
@@ -360,6 +443,30 @@ import Layout from "../layouts/Layout.astro";
       background-color: var(--success-bg);
       color: var(--success-fg);
       letter-spacing: 0.1em;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        background-color: var(--success-light-bg);
+      }
+
+      &:global(.copied)::before {
+        content: "Copied!";
+        position: absolute;
+        bottom: calc(100% + 5px);
+        left: 50%;
+        translate: -50% 0;
+        font-size: 0.72em;
+        font-weight: 900;
+        white-space: nowrap;
+        background-color: var(--success-light-bg);
+        color: var(--fg);
+        padding: 3px 6px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        pointer-events: none;
+        animation: tooltip-up 0.2s ease-out forwards;
+      }
     }
   }
 
