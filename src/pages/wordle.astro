@@ -447,9 +447,14 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
       letter-spacing: 0.1em;
       cursor: pointer;
       position: relative;
+      outline-style: solid;
+      outline-color: currentColor;
+      outline-width: 0px;
+      outline-offset: 0px;
 
       &:hover {
-        background-color: var(--success-light-bg);
+        outline-width: 2px;
+        outline-offset: 5px;
       }
 
       &:global(.copied)::before {
