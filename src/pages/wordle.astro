@@ -97,7 +97,7 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
     if (!curr) return;
     let status = "";
     for (const input of inputMap.values()) {
-      if (input.value !== key) continue;
+      if (!input.value.includes(key)) continue;
       status = input.className;
       if (status === "right") break;
     }
@@ -151,24 +151,37 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
         if (next instanceof HTMLInputElement) next.focus();
       } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
         e.preventDefault();
-        if (keyMap.has(prevKey)) {
+        if (keyMap.has(prevKey) && prevKey.length === 1) {
           input.className = input.className === "wrong" ? "right" : "wrong";
           removeFromUnavailable(prevKey);
           updateKeyStatus(prevKey);
         }
       } else if (e.key === "Backspace") {
         e.preventDefault();
-        input.value = "";
-        input.className = "";
-        updateKeyStatus(prevKey);
+        if (input.className === "wrong" && input.value.length > 1) {
+          const removed = input.value.at(-1)!;
+          input.value = input.value.slice(0, -1);
+          updateKeyStatus(removed);
+        } else {
+          input.value = "";
+          input.className = "";
+          for (const ch of prevKey) updateKeyStatus(ch);
+        }
       } else if (keyMap.has(key)) {
         e.preventDefault();
-        if (key === prevKey) return;
-        input.value = key;
-        input.className = "right";
-        removeFromUnavailable(key);
-        updateKeyStatus(key);
-        updateKeyStatus(prevKey);
+        if (input.className === "wrong") {
+          if (input.value.includes(key)) return;
+          input.value += key;
+          removeFromUnavailable(key);
+          updateKeyStatus(key);
+        } else {
+          if (key === prevKey) return;
+          input.value = key;
+          input.className = "right";
+          removeFromUnavailable(key);
+          updateKeyStatus(key);
+          updateKeyStatus(prevKey);
+        }
       }
     });
   });
@@ -182,7 +195,7 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
           ?.querySelector<HTMLInputElement>("input");
         if (!input) return;
         const val = input.value;
-        if (!keyMap.has(val)) return;
+        if (!keyMap.has(val) || val.length !== 1) return;
         input.className = input.className === "wrong" ? "right" : "wrong";
         removeFromUnavailable(val);
         updateKeyStatus(val);
