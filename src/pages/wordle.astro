@@ -23,6 +23,7 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
               <button type="button" class="arrow down">
                 ▼
               </button>
+              <div class="also-wrong" />
             </div>
           ))
         }
@@ -97,14 +98,24 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
     if (!curr) return;
     let status = "";
     for (const input of inputMap.values()) {
-      if (!input.value.includes(key)) continue;
-      status = input.className;
-      if (status === "right") break;
+      if (input.value.includes(key)) {
+        status = input.className;
+        if (status === "right") break;
+      } else if ((input.dataset.alsoWrong ?? "").includes(key)) {
+        if (status !== "right") status = "wrong";
+      }
     }
     if (status === "" && unavailable?.value.toUpperCase().includes(key)) {
       status = "unavailable";
     }
     curr.className = status;
+  };
+
+  const updateAlsoWrongDisplay = (input: HTMLInputElement): void => {
+    const div = input
+      .closest(".char-wrapper")
+      ?.querySelector<HTMLElement>(".also-wrong");
+    if (div) div.textContent = input.dataset.alsoWrong ?? "";
   };
 
   const removeFromUnavailable = (letter: string): void => {
@@ -151,14 +162,37 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
         if (next instanceof HTMLInputElement) next.focus();
       } else if (e.key === "ArrowUp" || e.key === "ArrowDown") {
         e.preventDefault();
-        if (keyMap.has(prevKey) && prevKey.length === 1) {
-          input.className = input.className === "wrong" ? "right" : "wrong";
+        if (input.className === "wrong" && prevKey.length > 1) {
+          const rightChar = prevKey[0]!;
+          input.value = rightChar;
+          input.className = "right";
+          input.dataset.alsoWrong = prevKey.slice(1);
+          updateAlsoWrongDisplay(input);
+          removeFromUnavailable(rightChar);
+          for (const ch of prevKey) updateKeyStatus(ch);
+        } else if (keyMap.has(prevKey) && prevKey.length === 1) {
+          const wasWrong = input.className === "wrong";
+          input.className = wasWrong ? "right" : "wrong";
+          if (!wasWrong) {
+            const alsoWrong = input.dataset.alsoWrong ?? "";
+            if (alsoWrong) {
+              input.value = prevKey + alsoWrong;
+              input.dataset.alsoWrong = "";
+              updateAlsoWrongDisplay(input);
+            }
+          }
           removeFromUnavailable(prevKey);
           updateKeyStatus(prevKey);
         }
       } else if (e.key === "Backspace") {
         e.preventDefault();
-        if (input.className === "wrong" && input.value.length > 1) {
+        const alsoWrong = input.dataset.alsoWrong ?? "";
+        if (alsoWrong.length > 0) {
+          const removed = alsoWrong.at(-1)!;
+          input.dataset.alsoWrong = alsoWrong.slice(0, -1);
+          updateAlsoWrongDisplay(input);
+          updateKeyStatus(removed);
+        } else if (input.className === "wrong" && input.value.length > 1) {
           const removed = input.value.at(-1)!;
           input.value = input.value.slice(0, -1);
           updateKeyStatus(removed);
@@ -172,6 +206,14 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
         if (input.className === "wrong") {
           if (input.value.includes(key)) return;
           input.value += key;
+          removeFromUnavailable(key);
+          updateKeyStatus(key);
+        } else if (input.className === "right") {
+          if (input.value === key) return;
+          const alsoWrong = input.dataset.alsoWrong ?? "";
+          if (alsoWrong.includes(key)) return;
+          input.dataset.alsoWrong = alsoWrong + key;
+          updateAlsoWrongDisplay(input);
           removeFromUnavailable(key);
           updateKeyStatus(key);
         } else {
@@ -195,10 +237,29 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
           ?.querySelector<HTMLInputElement>("input");
         if (!input) return;
         const val = input.value;
-        if (!keyMap.has(val) || val.length !== 1) return;
-        input.className = input.className === "wrong" ? "right" : "wrong";
-        removeFromUnavailable(val);
-        updateKeyStatus(val);
+        if (!val) return;
+        if (input.className === "wrong" && val.length > 1) {
+          const rightChar = val[0]!;
+          input.value = rightChar;
+          input.className = "right";
+          input.dataset.alsoWrong = val.slice(1);
+          updateAlsoWrongDisplay(input);
+          removeFromUnavailable(rightChar);
+          for (const ch of val) updateKeyStatus(ch);
+        } else if (keyMap.has(val) && val.length === 1) {
+          const wasWrong = input.className === "wrong";
+          input.className = wasWrong ? "right" : "wrong";
+          if (!wasWrong) {
+            const alsoWrong = input.dataset.alsoWrong ?? "";
+            if (alsoWrong) {
+              input.value = val + alsoWrong;
+              input.dataset.alsoWrong = "";
+              updateAlsoWrongDisplay(input);
+            }
+          }
+          removeFromUnavailable(val);
+          updateKeyStatus(val);
+        }
       });
     });
 
@@ -230,6 +291,8 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
       for (const input of inputMap.values()) {
         if (input.className === "right" && input.value) {
           pattern += input.value.toLowerCase();
+          for (const ch of (input.dataset.alsoWrong ?? "").toLowerCase())
+            known.push(ch);
         } else if (input.className === "wrong" && input.value) {
           pattern += `(${input.value.toLowerCase()})`;
           known.push(input.value.toLowerCase());
@@ -336,6 +399,23 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-1);
+  }
+
+  #pattern :global(.also-wrong) {
+    font-size: 0.75em;
+    font-weight: 900;
+    line-height: 1;
+    padding: 1px 5px;
+    border-radius: 3px;
+    min-height: calc(1em + 2px);
+    background-color: transparent;
+    color: transparent;
+    text-align: center;
+
+    &:not(:empty) {
+      background-color: var(--warning-bg);
+      color: var(--warning-fg);
+    }
   }
 
   #pattern :global(.arrow) {
