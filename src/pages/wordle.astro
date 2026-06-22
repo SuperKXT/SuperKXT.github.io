@@ -334,6 +334,56 @@ const pattern = Array.from({ length: 5 }, (_, idx) => idx + 1);
       active?.focus();
     });
   }
+
+  if (import.meta.env.DEV) {
+    const STATE_KEY = "wordle-finder";
+
+    const saveState = (): void => {
+      sessionStorage.setItem(
+        STATE_KEY,
+        JSON.stringify({
+          inputs: [...inputMap.entries()].map(([id, input]) => ({
+            id,
+            value: input.value,
+            className: input.className,
+            alsoWrong: input.dataset.alsoWrong ?? "",
+          })),
+          unavailable: unavailable?.value ?? "",
+        }),
+      );
+    };
+
+    // Restore on load
+    const raw = sessionStorage.getItem(STATE_KEY);
+    if (raw) {
+      try {
+        const state = JSON.parse(raw);
+        for (const { id, value, className, alsoWrong } of state.inputs) {
+          const input = inputMap.get(id);
+          if (!input) continue;
+          input.value = value;
+          input.className = className;
+          input.dataset.alsoWrong = alsoWrong;
+          updateAlsoWrongDisplay(input);
+        }
+        if (unavailable) {
+          unavailable.value = state.unavailable;
+          unavailable.className =
+            state.unavailable.length > 0 ? "unavailable" : "";
+        }
+        keyMap.forEach((_, key) => updateKeyStatus(key));
+      } catch {
+        // ignore corrupt state
+      }
+    }
+
+    // Save after any interaction via event delegation — existing handlers
+    // already run before these bubble, so state is always current when saved.
+    const wf = document.getElementById("wordle-form");
+    wf?.addEventListener("keydown", saveState);
+    wf?.addEventListener("click", saveState);
+    unavailable?.addEventListener("input", saveState);
+  }
 </script>
 
 <style>
