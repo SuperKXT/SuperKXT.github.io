@@ -1,0 +1,16 @@
+Privacy Policy
+
+This application is a personal, single-user configuration of rclone (https://rclone.org),
+used only by its owner to access their own Google Drive files.
+
+The application accesses Google Drive data solely to copy, sync and mount the owner's
+files on the owner's own computers. Authentication tokens and cached files are stored
+only on those computers.
+
+No Google user data is collected by, or sent to, any server operated by the developer.
+It is not sold, shared with third parties, or used for advertising or AI training.
+Data is exchanged only between the owner's computers and Google's services.
+
+Access can be revoked at any time at https://myaccount.google.com/permissions.
+
+Contact: superkxt@outlook.com
